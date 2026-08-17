@@ -239,11 +239,11 @@ footer b{color:var(--brass-soft);letter-spacing:.18em;text-transform:uppercase}
     <div class="form-shell">
       <form class="lead-form" id="lead-form" autocomplete="on">
         <label for="lf-name">Name</label>
-        <input id="lf-name" name="entry.748874735" type="text" required placeholder="Your name" autocomplete="name">
+        <input id="lf-name" name="name" type="text" required placeholder="Your name" autocomplete="name">
         <label for="lf-email">Email</label>
-        <input id="lf-email" name="emailAddress" type="email" required placeholder="you@example.com" autocomplete="email">
+        <input id="lf-email" name="email" type="email" required placeholder="you@example.com" autocomplete="email">
         <label for="lf-phone">Phone <span style="opacity:.55;letter-spacing:.1em">&middot; optional</span></label>
-        <input id="lf-phone" name="entry.2134518630" type="tel" placeholder="(941) 555-0100" autocomplete="tel">
+        <input id="lf-phone" name="phone" type="tel" placeholder="(941) 555-0100" autocomplete="tel">
         <button type="submit" id="lf-btn">Put Me On The List</button>
       </form>
       <p class="form-note">No spam &mdash; one email when the listing goes live.</p>
@@ -267,7 +267,7 @@ document.getElementById('lead-form').addEventListener('submit', async e => {
   const f = e.target, btn = document.getElementById('lf-btn');
   btn.disabled = true; btn.textContent = 'Sending\u2026';
   try {
-    await fetch('https://docs.google.com/forms/d/e/1FAIpQLSd5gWDsHNINxQnWylc8mz0bRKwoHf1-2v3S1Pcvwk4OQhdUyw/formResponse', {
+    await fetch('https://script.google.com/macros/s/AKfycby9RaqCAm--RnDxvfnWW_3J3yt3PDIBrzG8rop9Z0yxrBfcq2ZsTN0DXTBh0rt76hMtsw/exec', {
       method: 'POST', mode: 'no-cors',
       headers: {'Content-Type': 'application/x-www-form-urlencoded'},
       body: new URLSearchParams(new FormData(f))
