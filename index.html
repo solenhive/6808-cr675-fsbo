@@ -20,6 +20,14 @@
 <meta name="twitter:image" content="https://6808countyroad675bradentonfl.com/photos/pool-sunset.jpg">
 <meta name="robots" content="index,follow,max-image-preview:large">
 <link rel="canonical" href="https://6808countyroad675bradentonfl.com/">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-4H2VES8J9V"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-4H2VES8J9V');
+</script>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"RealEstateListing","name":"8.5-Acre Equestrian Estate — 6808 County Road 675, Bradenton, FL 34211","url":"https://6808countyroad675bradentonfl.com/","image":"https://6808countyroad675bradentonfl.com/photos/pool-sunset.jpg","description":"Coming soon: fully remodeled multi-generational equestrian estate on 8.5 gated acres in Bradenton, FL 34211. Beach-entry saltwater pool with spa, 5-stall barn, 3 stocked ponds, RV hookup.","about":{"@type":"SingleFamilyResidence","address":{"@type":"PostalAddress","streetAddress":"6808 County Road 675","addressLocality":"Bradenton","addressRegion":"FL","postalCode":"34211","addressCountry":"US"},"numberOfBathroomsTotal":4,"lotSize":{"@type":"QuantitativeValue","value":8.55,"unitText":"acres"}}}
 </script>
@@ -288,6 +296,7 @@ document.getElementById('lead-form').addEventListener('submit', async e => {
     });
   } catch (err) {}
   f.closest('.form-shell').classList.add('sent');
+  if (typeof gtag === 'function') gtag('event', 'generate_lead', {event_category: 'form', event_label: 'first_access_list'});
 });
 const io = new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.15});
 document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
