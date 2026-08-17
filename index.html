@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Coming Soon — 6808 County Road 675, Bradenton, FL 34211 | 8.5-Acre Equestrian Estate</title>
+<meta name="description" content="Coming soon: a fully remodeled multi-generational equestrian estate on 8.5 gated acres in Bradenton, FL 34211. Saltwater beach-entry pool, 5-stall barn, 3 stocked ponds, Lakewood Ranch school district.">
+<meta property="og:title" content="Coming Soon — 8.5-Acre Equestrian Estate | 6808 CR 675, Bradenton FL">
+<meta property="og:description" content="Luxury. Land. Lifestyle. Location. Fully remodeled estate on 8.5 gated acres — saltwater pool, 5-stall barn, 3 stocked ponds.">
+<meta property="og:image" content="https://6808countyroad675bradentonfl.com/photos/pool-sunset.jpg">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,600;9..144,700&family=Figtree:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --pine:#1d3128;
+  --pine-deep:#12211b;
+  --cream:#f4efe6;
+  --travertine:#e5dccb;
+  --brass:#c9a227;
+  --brass-soft:#d9b95c;
+  --ink:#22201b;
+  --serif:'Fraunces',serif;
+  --sans:'Figtree',sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);color:var(--ink);background:var(--cream);line-height:1.6}
+img{display:block;max-width:100%}
+
+/* ---------- HERO ---------- */
+.hero{position:relative;min-height:100svh;display:flex;align-items:flex-end;color:var(--cream);isolation:isolate}
+.hero::before{content:"";position:absolute;inset:0;background:url('photos/pool-sunset.jpg') center 40%/cover no-repeat;z-index:-2}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(18,33,27,.35) 0%,rgba(18,33,27,.05) 35%,rgba(18,33,27,.82) 100%);z-index:-1}
+.hero-inner{width:min(1150px,92%);margin:0 auto;padding:0 0 9vh}
+.eyebrow{display:inline-flex;align-items:center;gap:.75rem;font-size:.78rem;letter-spacing:.32em;text-transform:uppercase;font-weight:600;color:var(--brass-soft);animation:rise .9s .1s both}
+.eyebrow::before,.eyebrow::after{content:"";height:1px;width:2.2rem;background:var(--brass-soft)}
+.hero h1{font-family:var(--serif);font-weight:300;font-size:clamp(2.4rem,6.2vw,5rem);line-height:1.04;margin:.9rem 0 1rem;animation:rise .9s .25s both}
+.hero h1 em{font-style:italic;font-weight:600;color:var(--brass-soft)}
+.hero .addr{font-size:clamp(1rem,2vw,1.25rem);letter-spacing:.14em;text-transform:uppercase;font-weight:500;opacity:.92;animation:rise .9s .4s both}
+.hero .cta-row{margin-top:2.2rem;display:flex;gap:1rem;flex-wrap:wrap;animation:rise .9s .55s both}
+.btn{display:inline-block;padding:.95rem 2.1rem;border:1px solid var(--brass-soft);color:var(--cream);text-decoration:none;letter-spacing:.18em;text-transform:uppercase;font-size:.78rem;font-weight:600;transition:.25s}
+.btn.solid{background:var(--brass);border-color:var(--brass);color:var(--pine-deep)}
+.btn:hover{background:var(--brass-soft);border-color:var(--brass-soft);color:var(--pine-deep)}
+@keyframes rise{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:none}}
+
+/* ---------- STAT STRIP ---------- */
+.stats{background:var(--pine);color:var(--cream)}
+.stats-inner{width:min(1150px,92%);margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));text-align:center}
+.stat{padding:2rem 1rem;border-left:1px solid rgba(244,239,230,.12)}
+.stat:first-child{border-left:none}
+.stat b{display:block;font-family:var(--serif);font-size:2rem;font-weight:600;color:var(--brass-soft)}
+.stat span{font-size:.75rem;letter-spacing:.22em;text-transform:uppercase;opacity:.8}
+
+/* ---------- SECTIONS ---------- */
+section{padding:5.5rem 0}
+.wrap{width:min(1150px,92%);margin:0 auto}
+.kicker{font-size:.75rem;letter-spacing:.3em;text-transform:uppercase;font-weight:600;color:var(--brass)}
+h2{font-family:var(--serif);font-weight:400;font-size:clamp(1.9rem,3.6vw,2.9rem);line-height:1.1;margin:.6rem 0 1.2rem}
+.lede{font-size:1.12rem;max-width:46rem}
+
+/* intro */
+.intro{background:var(--cream)}
+.intro .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:4rem;align-items:center}
+.intro img{box-shadow:22px 22px 0 var(--travertine)}
+@media(max-width:820px){.intro .wrap{grid-template-columns:1fr}}
+
+/* features */
+.features{background:var(--travertine)}
+.feat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:2.5rem;margin-top:3rem}
+.feat h3{font-family:var(--serif);font-weight:600;font-size:1.35rem;margin-bottom:1rem;display:flex;align-items:center;gap:.6rem}
+.feat h3::before{content:"";width:2rem;height:2px;background:var(--brass)}
+.feat ul{list-style:none}
+.feat li{padding:.5rem 0 .5rem 1.4rem;position:relative;border-bottom:1px solid rgba(34,32,27,.08)}
+.feat li::before{content:"◆";position:absolute;left:0;top:.55rem;font-size:.55rem;color:var(--brass)}
+
+/* gallery */
+.gallery{background:var(--pine-deep);color:var(--cream)}
+.gal-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.7rem;margin-top:3rem}
+.gal-grid a{overflow:hidden;position:relative}
+.gal-grid img{width:100%;height:100%;object-fit:cover;aspect-ratio:4/3;transition:transform .6s ease}
+.gal-grid a:hover img{transform:scale(1.05)}
+.gal-grid .tall{grid-row:span 2}
+.gal-grid .tall img{aspect-ratio:2/3;height:100%}
+@media(max-width:700px){.gal-grid{grid-template-columns:repeat(2,1fr)}}
+
+/* plot map */
+.plot .wrap{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+.plot img{border:1px solid rgba(34,32,27,.15)}
+.plot table{width:100%;border-collapse:collapse;margin-top:1.4rem;font-size:.95rem}
+.plot td{padding:.6rem 0;border-bottom:1px solid rgba(34,32,27,.12)}
+.plot td:last-child{text-align:right;font-weight:600}
+@media(max-width:820px){.plot .wrap{grid-template-columns:1fr}}
+
+/* notify */
+.notify{background:var(--pine);color:var(--cream);text-align:center}
+.notify .lede{margin:0 auto 2.2rem}
+.form-shell{max-width:640px;margin:0 auto;background:var(--cream)}
+.form-shell iframe{width:100%;height:640px;border:0}
+.form-fallback{padding:3rem 2rem;color:var(--ink)}
+
+/* footer */
+footer{background:var(--pine-deep);color:rgba(244,239,230,.6);font-size:.8rem;text-align:center;padding:2.2rem 1rem;line-height:1.9}
+footer b{color:var(--brass-soft);letter-spacing:.18em;text-transform:uppercase}
+
+/* reveal on scroll */
+.reveal{opacity:0;transform:translateY(30px);transition:opacity .8s ease,transform .8s ease}
+.reveal.in{opacity:1;transform:none}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-inner">
+    <span class="eyebrow">Coming Soon · For Sale By Owner</span>
+    <h1>8.5 Acres of <em>Pure Possibility</em></h1>
+    <p class="addr">6808 County Road 675 · Bradenton, Florida 34211</p>
+    <div class="cta-row">
+      <a class="btn solid" href="#notify">Get Notified First</a>
+      <a class="btn" href="#estate">Explore the Estate</a>
+    </div>
+  </div>
+</header>
+
+<div class="stats">
+  <div class="stats-inner">
+    <div class="stat"><b>8.5±</b><span>Gated Acres</span></div>
+    <div class="stat"><b>3–4</b><span>Bedrooms</span></div>
+    <div class="stat"><b>4</b><span>Bathrooms</span></div>
+    <div class="stat"><b>5</b><span>Stall Barn</span></div>
+    <div class="stat"><b>3</b><span>Stocked Ponds</span></div>
+  </div>
+</div>
+
+<section class="intro" id="estate">
+  <div class="wrap">
+    <div class="reveal">
+      <span class="kicker">A Multi-Generational, Multi-Functional Estate</span>
+      <h2>More than a home.<br>A lifestyle with room to breathe.</h2>
+      <p class="lede">Completely remodeled, equestrian-ready, and loaded with luxury features that hit every lifestyle lane — located in the top-rated Lakewood Ranch school district. Luxury. Land. Lifestyle. Location. This estate delivers for families, investors, equestrians, and anyone craving the Florida dream.</p>
+    </div>
+    <img class="reveal" src="photos/house-rear.jpg" alt="Main residence at sunset with board-fenced pasture" loading="lazy">
+  </div>
+</section>
+
+<section class="features">
+  <div class="wrap">
+    <span class="kicker">The Full Picture</span>
+    <h2>Every box, checked.</h2>
+    <div class="feat-grid">
+      <div class="feat reveal">
+        <h3>Headline Features</h3>
+        <ul>
+          <li>Top-rated Lakewood Ranch school district</li>
+          <li>Multi-generational layout with mother-in-law suite / bonus room</li>
+          <li>3–4 bedrooms customized to your needs</li>
+          <li>4 bathrooms, including a private outdoor shower</li>
+          <li>Beach-entry saltwater pool with water features, infinity edge &amp; 6-person spa</li>
+          <li>Wrap-around porch, screened outdoor living &amp; 2-car garage</li>
+        </ul>
+      </div>
+      <div class="feat reveal">
+        <h3>Equestrian Excellence</h3>
+        <ul>
+          <li>8.5 gated acres of cross-fenced pasture</li>
+          <li>Brand-new 5-stall barn — grid flooring, fans &amp; misters</li>
+          <li>Oversized tack room, garage &amp; lounge with bathroom + washer/dryer</li>
+          <li>24×24 run-in shed with electric &amp; water</li>
+          <li>3 stocked ponds with gazebo &amp; fishing bridge</li>
+        </ul>
+      </div>
+      <div class="feat reveal">
+        <h3>Bonus Lifestyle Perks</h3>
+        <ul>
+          <li>RV slab with 50-amp hookup</li>
+          <li>Multi-functional spaces — family, guests, or rental flexibility</li>
+          <li>Space to build your own putting green</li>
+          <li>Exotic trees &amp; plants adorn the grounds</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="gallery">
+  <div class="wrap">
+    <span class="kicker">First Look</span>
+    <h2>A preview of the property.</h2>
+    <div class="gal-grid">
+      <a href="photos/pool-dusk.jpg" class="reveal"><img src="photos/pool-dusk.jpg" alt="Beach-entry saltwater pool at dusk with landscape lighting" loading="lazy"></a>
+      <a href="photos/spa-bath.jpg" class="tall reveal"><img src="photos/spa-bath.jpg" alt="Spa bathroom with soaking tub and private outdoor shower" loading="lazy"></a>
+      <a href="photos/pool-day.jpg" class="reveal"><img src="photos/pool-day.jpg" alt="Infinity-edge pool overlooking the pasture" loading="lazy"></a>
+      <a href="photos/horses-pond.jpg" class="reveal"><img src="photos/horses-pond.jpg" alt="Horses grazing beside a stocked pond and fishing bridge" loading="lazy"></a>
+      <a href="photos/spa-waterfall.jpg" class="reveal"><img src="photos/spa-waterfall.jpg" alt="Pebble waterfall spillway from pool into spa" loading="lazy"></a>
+      <a href="photos/double-rainbow.jpg" class="tall reveal"><img src="photos/double-rainbow.jpg" alt="Double rainbow over the fenced drive" loading="lazy"></a>
+      <a href="photos/front-entry.jpg" class="reveal"><img src="photos/front-entry.jpg" alt="Timber-framed front entry" loading="lazy"></a>
+      <a href="photos/pool-sunset.jpg" class="reveal"><img src="photos/pool-sunset.jpg" alt="Sunset reflected in the pool" loading="lazy"></a>
+    </div>
+  </div>
+</section>
+
+<section class="plot">
+  <div class="wrap">
+    <img class="reveal" src="photos/plot-map.jpg" alt="Aerial parcel map of 6808 CR 675 with 8.55-acre boundary outlined" loading="lazy">
+    <div class="reveal">
+      <span class="kicker">The Land</span>
+      <h2>8.55 acres, corner-to-corner.</h2>
+      <p>The full parcel — residence, barn, cross-fenced pastures, three ponds, and gated frontage on County Road 675.</p>
+      <table>
+        <tr><td>Parcel ID</td><td>320603806</td></tr>
+        <tr><td>Acreage</td><td>8.55± acres</td></tr>
+        <tr><td>Zoning / Future Land Use</td><td>A · AG-R</td></tr>
+        <tr><td>County</td><td>Manatee</td></tr>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section class="notify" id="notify">
+  <div class="wrap">
+    <span class="kicker">Full Listing Drops Soon</span>
+    <h2>Eyes open — this one's going to make waves.</h2>
+    <p class="lede">Be the first to know when the full listing goes live. Leave your details below and we'll reach out the moment it drops.</p>
+    <div class="form-shell">
+      <!-- GOOGLE_FORM_EMBED: replace src below with the Google Form embed URL -->
+      <div class="form-fallback" id="form-slot">
+        <p><b>Interest list opening shortly.</b><br>Check back soon to register for first access.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <b>6808 County Road 675 · Bradenton FL 34211</b><br>
+  Offered For Sale By Owner. All information deemed reliable but not guaranteed; buyer to verify all facts, figures, and measurements.<br>
+  Equal Housing Opportunity.
+</footer>
+
+<script>
+const io = new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.15});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
