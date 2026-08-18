@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://6808countyroad675bradentonfl.com/sitemap.xml
