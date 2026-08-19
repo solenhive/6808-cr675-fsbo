@@ -122,9 +122,10 @@ h2{font-family:var(--serif);font-weight:400;font-size:clamp(1.9rem,3.6vw,2.9rem)
 .form-shell::before{content:"";position:absolute;inset:8px;border:1px solid rgba(201,162,39,.25);pointer-events:none}
 .lead-form label{display:block;font-size:.68rem;letter-spacing:.26em;text-transform:uppercase;font-weight:600;color:var(--brass);margin:1.6rem 0 .2rem}
 .lead-form label:first-child{margin-top:0}
-.lead-form input{width:100%;border:0;border-bottom:1px solid rgba(34,32,27,.25);background:transparent;font-family:var(--serif);font-size:1.15rem;color:var(--ink);padding:.45rem 0;border-radius:0;outline:none;transition:border-color .25s}
-.lead-form input:focus{border-bottom:1.5px solid var(--brass)}
-.lead-form input::placeholder{color:rgba(34,32,27,.3);font-style:italic}
+.lead-form input,.lead-form textarea{width:100%;border:0;border-bottom:1px solid rgba(34,32,27,.25);background:transparent;font-family:var(--serif);font-size:1.15rem;color:var(--ink);padding:.45rem 0;border-radius:0;outline:none;transition:border-color .25s}
+.lead-form textarea{resize:vertical;min-height:2.6rem;line-height:1.5}
+.lead-form input:focus,.lead-form textarea:focus{border-bottom:1.5px solid var(--brass)}
+.lead-form input::placeholder,.lead-form textarea::placeholder{color:rgba(34,32,27,.3);font-style:italic}
 .lead-form button{margin-top:2.2rem;width:100%;padding:1.05rem;background:var(--brass);border:1px solid var(--brass);color:var(--pine-deep);letter-spacing:.2em;text-transform:uppercase;font-size:.78rem;font-weight:600;font-family:var(--sans);cursor:pointer;transition:.25s}
 .lead-form button:hover{background:var(--brass-soft);border-color:var(--brass-soft)}
 .lead-form button:disabled{opacity:.6;cursor:wait}
@@ -267,6 +268,8 @@ footer b{color:var(--brass-soft);letter-spacing:.18em;text-transform:uppercase}
         <input id="lf-email" name="email" type="email" required placeholder="you@example.com" autocomplete="email">
         <label for="lf-phone">Phone <span style="opacity:.55;letter-spacing:.1em">&middot; optional</span></label>
         <input id="lf-phone" name="phone" type="tel" placeholder="(941) 555-0100" autocomplete="tel">
+        <label for="lf-msg">Message <span style="opacity:.55;letter-spacing:.1em">&middot; optional</span></label>
+        <textarea id="lf-msg" name="message" rows="2" placeholder="Anything you'd like us to know?"></textarea>
         <button type="submit" id="lf-btn">Put Me On The List</button>
       </form>
       <p class="form-note">No spam &mdash; one email when the listing goes live.</p>
