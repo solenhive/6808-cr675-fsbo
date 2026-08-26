@@ -116,10 +116,22 @@ h2{font-family:var(--serif);font-weight:400;font-size:clamp(1.9rem,3.6vw,2.9rem)
 /* main residence */
 .main-home{background:var(--pine-deep);color:var(--cream)}
 .mh-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.7rem;margin-top:3rem}
-.mh-grid a{overflow:hidden}
-.mh-grid img{width:100%;height:100%;object-fit:cover;aspect-ratio:3/4;transition:transform .6s ease}
-.mh-grid a:hover img{transform:scale(1.05)}
-@media(max-width:700px){.mh-grid{grid-template-columns:repeat(2,1fr)}}
+.mh-card{position:relative;aspect-ratio:3/4;perspective:1200px;cursor:pointer;outline:none}
+.mh-card:focus-visible{outline:2px solid var(--brass);outline-offset:3px}
+.mh-inner{position:absolute;inset:0;transform-style:preserve-3d;transition:transform .7s cubic-bezier(.35,.15,.2,1)}
+@media(hover:hover){.mh-card:hover .mh-inner{transform:rotateY(180deg)}}
+.mh-card.flipped .mh-inner{transform:rotateY(180deg)}
+.mh-face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;overflow:hidden}
+.mh-front img{width:100%;height:100%;object-fit:cover}
+.mh-front::after{content:"+";position:absolute;right:.6rem;bottom:.55rem;width:1.6rem;height:1.6rem;border:1px solid rgba(244,239,230,.75);border-radius:50%;color:var(--cream);display:flex;align-items:center;justify-content:center;font-size:1rem;background:rgba(18,33,27,.35)}
+.mh-back{transform:rotateY(180deg);background:var(--cream);color:#22201b;display:flex;flex-direction:column;justify-content:center;padding:1.6rem}
+.mh-back::after{content:"";position:absolute;inset:.55rem;border:1px solid rgba(201,162,39,.5);pointer-events:none}
+.mh-num{font-family:var(--serif);color:var(--brass);font-size:.85rem;letter-spacing:.18em;margin-bottom:.7rem}
+.mh-back h3{font-family:var(--serif);font-weight:600;font-size:1.25rem;margin-bottom:.6rem;display:flex;align-items:center;gap:.6rem}
+.mh-back h3::before{content:"";width:1.6rem;height:2px;background:var(--brass);flex:none}
+.mh-back p{font-size:.92rem;line-height:1.55}
+@media(max-width:700px){.mh-grid{grid-template-columns:repeat(2,1fr)}.mh-back{padding:1.1rem}.mh-back p{font-size:.85rem;line-height:1.45}.mh-back h3{font-size:1.05rem}}
+@media(prefers-reduced-motion:reduce){.mh-inner{transition:none}}
 
 /* apartment */
 .apt{background:var(--cream)}
@@ -248,17 +260,62 @@ footer b{color:var(--brass-soft);letter-spacing:.18em;text-transform:uppercase}
   <div class="wrap">
     <span class="kicker">The Main Residence</span>
     <h2>Fully remodeled, top to bottom.</h2>
-    <p class="lede">Inside the main house: a chef&rsquo;s kitchen open to the great room, a stacked-stone fireplace wall with custom built-ins, a copper-topped coffee &amp; wine bar, and designer baths &mdash; including a hammered-copper soaking tub set against chevron tile beneath a chandelier. Every room finished, nothing left builder-grade.</p>
+    <p class="lede">Inside the main house: a chef&rsquo;s kitchen open to the great room, a stacked-stone fireplace wall with custom built-ins, a copper-topped coffee &amp; wine bar, and designer baths &mdash; including a genuine hammered-copper soaking tub set against chevron tile beneath a chandelier. Every room finished, nothing left builder-grade.</p>
     <div class="mh-grid">
-      <a href="photos/main-foyer.jpg" class="reveal"><img src="photos/main-foyer.jpg" alt="Foyer with orb chandelier and leaded-glass door surround" loading="lazy"></a>
-      <a href="photos/main-living.jpg" class="reveal"><img src="photos/main-living.jpg" alt="Great room sectional open to the kitchen breakfast bar" loading="lazy"></a>
-      <a href="photos/main-kitchen.jpg" class="reveal"><img src="photos/main-kitchen.jpg" alt="Chef&#39;s kitchen with sage cabinetry, copper-topped bar, and island hood" loading="lazy"></a>
-      <a href="photos/main-fireplace.jpg" class="reveal"><img src="photos/main-fireplace.jpg" alt="Stacked-stone fireplace with reclaimed-timber mantel and built-in shelving" loading="lazy"></a>
-      <a href="photos/main-coffee-bar.jpg" class="reveal"><img src="photos/main-coffee-bar.jpg" alt="Coffee and wine bar with copper counter, wine rack, and beverage fridge" loading="lazy"></a>
-      <a href="photos/main-bedroom.jpg" class="reveal"><img src="photos/main-bedroom.jpg" alt="Bedroom with painted accent alcove and wood floors" loading="lazy"></a>
-      <a href="photos/main-copper-tub.jpg" class="reveal"><img src="photos/main-copper-tub.jpg" alt="Hammered-copper soaking tub with chevron tile and arched mirror window" loading="lazy"></a>
-      <a href="photos/main-shower.jpg" class="reveal"><img src="photos/main-shower.jpg" alt="Walk-in shower with black-grid glass doors and stone mosaic floor" loading="lazy"></a>
-      <a href="photos/main-guest-bath.jpg" class="reveal"><img src="photos/main-guest-bath.jpg" alt="Guest bath with freestanding soaking tub and bamboo-tile accent wall" loading="lazy"></a>
+      <div class="mh-card reveal" tabindex="0" role="button" aria-pressed="false" aria-label="The Foyer details">
+        <div class="mh-inner">
+          <div class="mh-face mh-front"><img src="photos/main-foyer.jpg" alt="Foyer with orb chandelier and leaded-glass door surround" loading="lazy"></div>
+          <div class="mh-face mh-back"><span class="mh-num">01</span><h3>The Foyer</h3><p>Leaded-glass sidelights and transom frame the entry beneath an orb chandelier.</p></div>
+        </div>
+      </div>
+      <div class="mh-card reveal" tabindex="0" role="button" aria-pressed="false" aria-label="The Great Room details">
+        <div class="mh-inner">
+          <div class="mh-face mh-front"><img src="photos/main-living.jpg" alt="Great room sectional open to the kitchen breakfast bar" loading="lazy"></div>
+          <div class="mh-face mh-back"><span class="mh-num">02</span><h3>The Great Room</h3><p>Open-concept living flows to the kitchen across a wood-topped breakfast bar.</p></div>
+        </div>
+      </div>
+      <div class="mh-card reveal" tabindex="0" role="button" aria-pressed="false" aria-label="The Kitchen details">
+        <div class="mh-inner">
+          <div class="mh-face mh-front"><img src="photos/main-kitchen.jpg" alt="Chef&#39;s kitchen with sage cabinetry, copper-topped bar, and island hood" loading="lazy"></div>
+          <div class="mh-face mh-back"><span class="mh-num">03</span><h3>The Kitchen</h3><p>Sage cabinetry, stainless appliances, island vent hood, and a copper-topped bar.</p></div>
+        </div>
+      </div>
+      <div class="mh-card reveal" tabindex="0" role="button" aria-pressed="false" aria-label="The Fireplace Wall details">
+        <div class="mh-inner">
+          <div class="mh-face mh-front"><img src="photos/main-fireplace.jpg" alt="Stacked-stone fireplace with reclaimed-timber mantel and built-in shelving" loading="lazy"></div>
+          <div class="mh-face mh-back"><span class="mh-num">04</span><h3>The Fireplace Wall</h3><p>Stacked-stone surround, reclaimed-timber mantel, and flanking built-ins.</p></div>
+        </div>
+      </div>
+      <div class="mh-card reveal" tabindex="0" role="button" aria-pressed="false" aria-label="Coffee and Wine Bar details">
+        <div class="mh-inner">
+          <div class="mh-face mh-front"><img src="photos/main-coffee-bar.jpg" alt="Coffee and wine bar with copper counter, wine rack, and beverage fridge" loading="lazy"></div>
+          <div class="mh-face mh-back"><span class="mh-num">05</span><h3>Coffee &amp; Wine Bar</h3><p>Copper counter, built-in wine rack, beverage fridge, under-cabinet lighting.</p></div>
+        </div>
+      </div>
+      <div class="mh-card reveal" tabindex="0" role="button" aria-pressed="false" aria-label="A Bedroom Retreat details">
+        <div class="mh-inner">
+          <div class="mh-face mh-front"><img src="photos/main-bedroom.jpg" alt="Bedroom with painted accent alcove and wood floors" loading="lazy"></div>
+          <div class="mh-face mh-back"><span class="mh-num">06</span><h3>A Bedroom Retreat</h3><p>Framed accent alcove and warm wood floors.</p></div>
+        </div>
+      </div>
+      <div class="mh-card reveal" tabindex="0" role="button" aria-pressed="false" aria-label="The Copper Bath details">
+        <div class="mh-inner">
+          <div class="mh-face mh-front"><img src="photos/main-copper-tub.jpg" alt="Hammered-copper soaking tub with chevron tile and arched mirror window" loading="lazy"></div>
+          <div class="mh-face mh-back"><span class="mh-num">07</span><h3>The Copper Bath</h3><p>A genuine hammered-copper soaking tub against black chevron tile, lit by chandelier.</p></div>
+        </div>
+      </div>
+      <div class="mh-card reveal" tabindex="0" role="button" aria-pressed="false" aria-label="The Walk-In Shower details">
+        <div class="mh-inner">
+          <div class="mh-face mh-front"><img src="photos/main-shower.jpg" alt="Walk-in shower with black-grid glass doors and stone mosaic floor" loading="lazy"></div>
+          <div class="mh-face mh-back"><span class="mh-num">08</span><h3>The Walk-In Shower</h3><p>Black-grid glass, stone-slab walls, and a mosaic pebble floor.</p></div>
+        </div>
+      </div>
+      <div class="mh-card reveal" tabindex="0" role="button" aria-pressed="false" aria-label="The Guest Bath details">
+        <div class="mh-inner">
+          <div class="mh-face mh-front"><img src="photos/main-guest-bath.jpg" alt="Guest bath with freestanding soaking tub and bamboo-tile accent wall" loading="lazy"></div>
+          <div class="mh-face mh-back"><span class="mh-num">09</span><h3>The Guest Bath</h3><p>Freestanding soaking tub beside a wood-mosaic accent wall.</p></div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -365,6 +422,7 @@ document.getElementById('lead-form').addEventListener('submit', async e => {
 });
 const io = new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.15});
 document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+document.querySelectorAll('.mh-card').forEach(c=>{const t=()=>{const on=c.classList.toggle('flipped');c.setAttribute('aria-pressed',on)};c.addEventListener('click',t);c.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();t()}})});
 </script>
 </body>
 </html>
