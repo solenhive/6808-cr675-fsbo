@@ -35,7 +35,7 @@ fbq('init','1372526691115291');fbq('track','PageView');
 </script>
 <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1372526691115291&ev=PageView&noscript=1"></noscript>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"RealEstateListing","name":"8.5-Acre Equestrian Estate — 6808 County Road 675, Bradenton, FL 34211","url":"https://6808countyroad675bradentonfl.com/","image":"https://6808countyroad675bradentonfl.com/photos/pool-sunset.jpg","description":"Coming soon: fully remodeled multi-generational equestrian estate on 8.5 gated acres in Bradenton, FL 34211. Beach-entry saltwater pool with spa, 5-stall barn, 3 stocked ponds, RV hookup, and a private ~1,800 sq ft studio apartment with separate meter.","about":{"@type":"SingleFamilyResidence","address":{"@type":"PostalAddress","streetAddress":"6808 County Road 675","addressLocality":"Bradenton","addressRegion":"FL","postalCode":"34211","addressCountry":"US"},"numberOfBathroomsTotal":4,"lotSize":{"@type":"QuantitativeValue","value":8.55,"unitText":"acres"}}}
+{"@context":"https://schema.org","@type":"RealEstateListing","name":"8.5-Acre Equestrian Estate — 6808 County Road 675, Bradenton, FL 34211","url":"https://6808countyroad675bradentonfl.com/","image":["https://6808countyroad675bradentonfl.com/photos/pool-sunset.jpg","https://6808countyroad675bradentonfl.com/photos/house-front.jpg","https://6808countyroad675bradentonfl.com/photos/main-kitchen.jpg","https://6808countyroad675bradentonfl.com/photos/main-copper-tub.jpg"],"description":"Coming soon: fully remodeled multi-generational equestrian estate on 8.5 gated acres in Bradenton, FL 34211. Beach-entry saltwater pool with spa, 5-stall barn, 3 stocked ponds, RV hookup, and a private ~1,800 sq ft studio apartment with separate meter.","about":{"@type":"SingleFamilyResidence","address":{"@type":"PostalAddress","streetAddress":"6808 County Road 675","addressLocality":"Bradenton","addressRegion":"FL","postalCode":"34211","addressCountry":"US"},"numberOfBathroomsTotal":4,"lotSize":{"@type":"QuantitativeValue","value":8.55,"unitText":"acres"}}}
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -112,6 +112,14 @@ h2{font-family:var(--serif);font-weight:400;font-size:clamp(1.9rem,3.6vw,2.9rem)
 .gal-grid .tall{grid-row:span 2}
 .gal-grid .tall img{aspect-ratio:2/3;height:100%}
 @media(max-width:700px){.gal-grid{grid-template-columns:repeat(2,1fr)}}
+
+/* main residence */
+.main-home{background:var(--pine-deep);color:var(--cream)}
+.mh-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.7rem;margin-top:3rem}
+.mh-grid a{overflow:hidden}
+.mh-grid img{width:100%;height:100%;object-fit:cover;aspect-ratio:3/4;transition:transform .6s ease}
+.mh-grid a:hover img{transform:scale(1.05)}
+@media(max-width:700px){.mh-grid{grid-template-columns:repeat(2,1fr)}}
 
 /* apartment */
 .apt{background:var(--cream)}
@@ -236,6 +244,25 @@ footer b{color:var(--brass-soft);letter-spacing:.18em;text-transform:uppercase}
   </div>
 </section>
 
+<section class="main-home">
+  <div class="wrap">
+    <span class="kicker">The Main Residence</span>
+    <h2>Fully remodeled, top to bottom.</h2>
+    <p class="lede">Inside the main house: a chef&rsquo;s kitchen open to the great room, a stacked-stone fireplace wall with custom built-ins, a copper-topped coffee &amp; wine bar, and designer baths &mdash; including a hammered-copper soaking tub set against chevron tile beneath a chandelier. Every room finished, nothing left builder-grade.</p>
+    <div class="mh-grid">
+      <a href="photos/main-foyer.jpg" class="reveal"><img src="photos/main-foyer.jpg" alt="Foyer with orb chandelier and leaded-glass door surround" loading="lazy"></a>
+      <a href="photos/main-living.jpg" class="reveal"><img src="photos/main-living.jpg" alt="Great room sectional open to the kitchen breakfast bar" loading="lazy"></a>
+      <a href="photos/main-kitchen.jpg" class="reveal"><img src="photos/main-kitchen.jpg" alt="Chef&#39;s kitchen with sage cabinetry, copper-topped bar, and island hood" loading="lazy"></a>
+      <a href="photos/main-fireplace.jpg" class="reveal"><img src="photos/main-fireplace.jpg" alt="Stacked-stone fireplace with reclaimed-timber mantel and built-in shelving" loading="lazy"></a>
+      <a href="photos/main-coffee-bar.jpg" class="reveal"><img src="photos/main-coffee-bar.jpg" alt="Coffee and wine bar with copper counter, wine rack, and beverage fridge" loading="lazy"></a>
+      <a href="photos/main-bedroom.jpg" class="reveal"><img src="photos/main-bedroom.jpg" alt="Bedroom with painted accent alcove and wood floors" loading="lazy"></a>
+      <a href="photos/main-copper-tub.jpg" class="reveal"><img src="photos/main-copper-tub.jpg" alt="Hammered-copper soaking tub with chevron tile and arched mirror window" loading="lazy"></a>
+      <a href="photos/main-shower.jpg" class="reveal"><img src="photos/main-shower.jpg" alt="Walk-in shower with black-grid glass doors and stone mosaic floor" loading="lazy"></a>
+      <a href="photos/main-guest-bath.jpg" class="reveal"><img src="photos/main-guest-bath.jpg" alt="Guest bath with freestanding soaking tub and bamboo-tile accent wall" loading="lazy"></a>
+    </div>
+  </div>
+</section>
+
 <section class="apt">
   <div class="wrap">
     <span class="kicker">Multi-Use &middot; Multi-Gen</span>
@@ -255,13 +282,16 @@ footer b{color:var(--brass-soft);letter-spacing:.18em;text-transform:uppercase}
     <span class="kicker">First Look</span>
     <h2>A preview of the property.</h2>
     <div class="gal-grid">
+      <a href="photos/house-front.jpg" class="reveal"><img src="photos/house-front.jpg" alt="Front of the home with board-fenced yard and circular gravel drive" loading="lazy"></a>
       <a href="photos/pool-dusk.jpg" class="reveal"><img src="photos/pool-dusk.jpg" alt="Beach-entry saltwater pool at dusk with landscape lighting" loading="lazy"></a>
       <a href="photos/spa-bath.jpg" class="tall reveal"><img src="photos/spa-bath.jpg" alt="Spa bathroom with soaking tub and private outdoor shower" loading="lazy"></a>
       <a href="photos/pool-day.jpg" class="reveal"><img src="photos/pool-day.jpg" alt="Infinity-edge pool overlooking the pasture" loading="lazy"></a>
       <a href="photos/horses-pond.jpg" class="reveal"><img src="photos/horses-pond.jpg" alt="Horses grazing beside a stocked pond and fishing bridge" loading="lazy"></a>
+      <a href="photos/pond-gazebo.jpg" class="reveal"><img src="photos/pond-gazebo.jpg" alt="Lily pond with fishing bridge and covered gazebo" loading="lazy"></a>
       <a href="photos/spa-waterfall.jpg" class="reveal"><img src="photos/spa-waterfall.jpg" alt="Pebble waterfall spillway from pool into spa" loading="lazy"></a>
       <a href="photos/double-rainbow.jpg" class="tall reveal"><img src="photos/double-rainbow.jpg" alt="Double rainbow over the fenced drive" loading="lazy"></a>
       <a href="photos/front-entry.jpg" class="reveal"><img src="photos/front-entry.jpg" alt="Timber-framed front entry" loading="lazy"></a>
+      <a href="photos/house-front-lawn.jpg" class="reveal"><img src="photos/house-front-lawn.jpg" alt="Craftsman ranch home behind board fencing and mature oaks" loading="lazy"></a>
       <a href="photos/pool-sunset.jpg" class="reveal"><img src="photos/pool-sunset.jpg" alt="Sunset reflected in the pool" loading="lazy"></a>
     </div>
   </div>
