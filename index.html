@@ -422,7 +422,7 @@ document.getElementById('lead-form').addEventListener('submit', async e => {
 });
 const io = new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.15});
 document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
-document.querySelectorAll('.mh-card').forEach(c=>{const t=()=>{const on=c.classList.toggle('flipped');c.setAttribute('aria-pressed',on)};c.addEventListener('click',t);c.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();t()}})});
+const mhSeen=new Set();const mhFire=c=>{const l=c.querySelector('.mh-num').textContent+' '+c.querySelector('h3').textContent;if(mhSeen.has(l))return;mhSeen.add(l);if(typeof gtag==='function')gtag('event','card_flip',{event_category:'main_residence',event_label:l})};document.querySelectorAll('.mh-card').forEach(c=>{const t=()=>{const on=c.classList.toggle('flipped');c.setAttribute('aria-pressed',on);if(on)mhFire(c)};c.addEventListener('click',t);c.addEventListener('mouseenter',()=>mhFire(c),{once:true});c.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();t()}})});
 </script>
 </body>
 </html>
