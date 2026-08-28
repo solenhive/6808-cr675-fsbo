@@ -163,6 +163,13 @@ h2{font-family:var(--serif);font-weight:400;font-size:clamp(1.9rem,3.6vw,2.9rem)
 .lead-form button{margin-top:2.2rem;width:100%;padding:1.05rem;background:var(--brass);border:1px solid var(--brass);color:var(--pine-deep);letter-spacing:.2em;text-transform:uppercase;font-size:.78rem;font-weight:600;font-family:var(--sans);cursor:pointer;transition:.25s}
 .lead-form button:hover{background:var(--brass-soft);border-color:var(--brass-soft)}
 .lead-form button:disabled{opacity:.6;cursor:wait}
+.lf-radio{display:flex;gap:2.4rem;margin-top:.55rem}
+.lf-radio label{display:flex;align-items:center;gap:.5rem;margin:0;font-family:var(--serif);font-size:1.12rem;letter-spacing:0;text-transform:none;font-weight:400;color:var(--ink);cursor:pointer}
+.lf-radio input{width:auto;accent-color:var(--brass)}
+#lf-co-wrap{display:none}
+#lf-co-wrap.show{display:block}
+.brochure-btn{display:inline-block;margin-top:1.6rem;padding:.9rem 1.8rem;border:1px solid var(--brass);color:var(--brass);letter-spacing:.2em;text-transform:uppercase;font-size:.74rem;font-weight:600;font-family:var(--sans);text-decoration:none;transition:.25s}
+.brochure-btn:hover{background:var(--brass);color:var(--pine-deep)}
 .form-note{margin-top:1rem;font-size:.72rem;color:rgba(34,32,27,.5);text-align:center;letter-spacing:.04em}
 .form-done{display:none;padding:2.5rem 0 1.5rem;text-align:center}
 .form-done h3{font-family:var(--serif);font-weight:400;font-size:1.7rem;margin-bottom:.6rem}
@@ -388,6 +395,15 @@ footer b{color:var(--brass-soft);letter-spacing:.18em;text-transform:uppercase}
         <input id="lf-email" name="email" type="email" required placeholder="you@example.com" autocomplete="email">
         <label for="lf-phone">Phone <span style="opacity:.55;letter-spacing:.1em">&middot; optional</span></label>
         <input id="lf-phone" name="phone" type="tel" placeholder="(941) 555-0100" autocomplete="tel">
+        <label>Are you a realtor?</label>
+        <div class="lf-radio">
+          <label><input type="radio" name="realtor" value="Yes"> Yes</label>
+          <label><input type="radio" name="realtor" value="No" checked> No</label>
+        </div>
+        <div id="lf-co-wrap">
+          <label for="lf-co">Real Estate Company</label>
+          <input id="lf-co" name="company" type="text" placeholder="Brokerage name" autocomplete="organization">
+        </div>
         <label for="lf-msg">Message <span style="opacity:.55;letter-spacing:.1em">&middot; optional</span></label>
         <textarea id="lf-msg" name="message" rows="2" placeholder="Anything you'd like us to know?"></textarea>
         <button type="submit" id="lf-btn">Put Me On The List</button>
@@ -396,6 +412,7 @@ footer b{color:var(--brass-soft);letter-spacing:.18em;text-transform:uppercase}
       <div class="form-done">
         <h3>You're on the list.</h3>
         <p>We'll reach out the moment the full listing drops.</p>
+        <a class="brochure-btn" id="lf-brochure" href="/brochure.pdf" target="_blank" rel="noopener">Download the Property Brochure</a>
       </div>
     </div>
   </div>
@@ -424,6 +441,8 @@ document.getElementById('lead-form').addEventListener('submit', async e => {
   if (typeof gtag === 'function') gtag('event', 'generate_lead', {event_category: 'form', event_label: 'first_access_list'});
   if (typeof fbq === 'function') fbq('track', 'Lead');
 });
+document.querySelectorAll('input[name="realtor"]').forEach(r=>r.addEventListener('change',()=>{document.getElementById('lf-co-wrap').classList.toggle('show',r.value==='Yes'&&r.checked);}));
+document.getElementById('lf-brochure').addEventListener('click',()=>{if(typeof gtag==='function')gtag('event','file_download',{event_category:'brochure',event_label:'gated_pdf',file_name:'brochure.pdf'});if(typeof fbq==='function')fbq('trackCustom','BrochureDownload');});
 const io = new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.15});
 document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 const mhSeen=new Set();const mhFire=c=>{const l=c.querySelector('.mh-num').textContent+' '+c.querySelector('h3').textContent;if(mhSeen.has(l))return;mhSeen.add(l);if(typeof gtag==='function')gtag('event','card_flip',{event_category:'main_residence',event_label:l})};document.querySelectorAll('.mh-card').forEach(c=>{const t=()=>{const on=c.classList.toggle('flipped');c.setAttribute('aria-pressed',on);if(on)mhFire(c)};c.addEventListener('click',t);c.addEventListener('mouseenter',()=>mhFire(c),{once:true});c.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();t()}})});
