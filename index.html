@@ -35,7 +35,7 @@ fbq('init','1372526691115291');fbq('track','PageView');
 </script>
 <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1372526691115291&ev=PageView&noscript=1"></noscript>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"RealEstateListing","name":"8.5-Acre Equestrian Estate — 6808 County Road 675, Bradenton, FL 34211","url":"https://6808countyroad675bradentonfl.com/","image":["https://6808countyroad675bradentonfl.com/photos/pool-sunset.jpg","https://6808countyroad675bradentonfl.com/photos/house-front.jpg","https://6808countyroad675bradentonfl.com/photos/main-kitchen.jpg","https://6808countyroad675bradentonfl.com/photos/main-copper-tub.jpg"],"description":"Coming soon: fully remodeled multi-generational equestrian estate on 8.5 gated acres in Bradenton, FL 34211. Beach-entry saltwater pool with spa, 5-stall barn, 3 stocked ponds, RV hookup, and a private ~1,800 sq ft studio apartment with separate meter.","about":{"@type":"SingleFamilyResidence","address":{"@type":"PostalAddress","streetAddress":"6808 County Road 675","addressLocality":"Bradenton","addressRegion":"FL","postalCode":"34211","addressCountry":"US"},"numberOfBathroomsTotal":4,"lotSize":{"@type":"QuantitativeValue","value":8.55,"unitText":"acres"}}}
+{"@context":"https://schema.org","@type":"RealEstateListing","name":"8.5-Acre Equestrian Estate — 6808 County Road 675, Bradenton, FL 34211","url":"https://6808countyroad675bradentonfl.com/","image":["https://6808countyroad675bradentonfl.com/photos/pool-sunset.jpg","https://6808countyroad675bradentonfl.com/photos/house-front.jpg","https://6808countyroad675bradentonfl.com/photos/main-kitchen.jpg","https://6808countyroad675bradentonfl.com/photos/main-copper-tub.jpg"],"description":"Coming soon: fully remodeled multi-generational equestrian estate on 8.5 gated acres in Bradenton, FL 34211. Beach-entry saltwater pool with spa, 5-stall barn, 3 stocked ponds, RV hookup, and a private ~1,800 sq ft studio apartment with separate meter.","about":{"@type":"SingleFamilyResidence","address":{"@type":"PostalAddress","streetAddress":"6808 County Road 675","addressLocality":"Bradenton","addressRegion":"FL","postalCode":"34211","addressCountry":"US"},"geo":{"@type":"GeoCoordinates","latitude":27.4199,"longitude":-82.30377},"numberOfBathroomsTotal":4,"lotSize":{"@type":"QuantitativeValue","value":8.55,"unitText":"acres"}}}
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -182,6 +182,26 @@ h2{font-family:var(--serif);font-weight:400;font-size:clamp(1.9rem,3.6vw,2.9rem)
 /* footer */
 footer{background:var(--pine-deep);color:rgba(244,239,230,.6);font-size:.8rem;text-align:center;padding:2.2rem 1rem;line-height:1.9}
 footer b{color:var(--brass-soft);letter-spacing:.18em;text-transform:uppercase}
+
+/* location */
+.loc{background:var(--travertine)}
+.loc .wrap{display:grid;grid-template-columns:1.15fr .85fr;gap:3.5rem;align-items:start}
+.loc-head{grid-column:1/-1;margin-bottom:.5rem}
+.loc-map{position:relative;border:1px solid rgba(34,32,27,.18);background:var(--cream);aspect-ratio:4/3}
+.loc-map iframe{display:block;width:100%;height:100%;border:0;filter:saturate(.9)}
+.loc-dir{display:inline-block;margin-top:1rem;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;font-weight:600;color:var(--brass);text-decoration:none;border-bottom:1px solid rgba(201,162,39,.5);padding-bottom:.25rem;transition:.25s}
+.loc-dir:hover{color:var(--pine);border-color:var(--pine)}
+.loc h3{font-family:var(--serif);font-weight:600;font-size:1.15rem;margin:0 0 .4rem;display:flex;align-items:center;gap:.6rem}
+.loc h3::before{content:"";width:1.8rem;height:2px;background:var(--brass);flex:none}
+.loc h3+ul{margin-bottom:2.4rem}
+.loc ul{list-style:none}
+.loc li{display:flex;align-items:baseline;gap:.6rem;padding:.62rem 0;border-bottom:1px solid rgba(34,32,27,.12);font-size:.97rem}
+.loc li .n{flex:none}
+.loc li .d{flex:1;border-bottom:1px dotted rgba(34,32,27,.28);transform:translateY(-.28rem)}
+.loc li .v{flex:none;font-weight:600;font-variant-numeric:tabular-nums;white-space:nowrap}
+.loc li .v em{font-style:normal;color:rgba(34,32,27,.5);font-weight:400;padding:0 .35rem}
+.loc-note{grid-column:1/-1;margin-top:.5rem;font-size:.75rem;color:rgba(34,32,27,.55);letter-spacing:.03em}
+@media(max-width:900px){.loc .wrap{grid-template-columns:1fr;gap:2.5rem}.loc-map{aspect-ratio:1/1}.loc h3+ul{margin-bottom:1.8rem}}
 
 /* reveal on scroll */
 .reveal{opacity:0;transform:translateY(30px);transition:opacity .8s ease,transform .8s ease}
@@ -383,6 +403,39 @@ footer b{color:var(--brass-soft);letter-spacing:.18em;text-transform:uppercase}
   </div>
 </section>
 
+<section class="loc" id="location">
+  <div class="wrap">
+    <div class="loc-head reveal">
+      <span class="kicker">The Location</span>
+      <h2>Country quiet. Everything still close.</h2>
+      <p class="lede">Eight and a half private acres in eastern Manatee County &mdash; far enough out for horses, pastures and dark skies, still an easy drive to Lakewood Ranch, the University corridor, I-75 and the Gulf.</p>
+    </div>
+    <div class="reveal">
+      <div class="loc-map">
+        <iframe src="https://maps.google.com/maps?q=27.4199,-82.30377&amp;ll=27.4300,-82.3900&amp;z=11&amp;output=embed" title="Map showing 6808 County Road 675, Bradenton FL in relation to Lakewood Ranch and the University Parkway corridor" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+      </div>
+      <a class="loc-dir" href="https://www.google.com/maps/dir/?api=1&amp;destination=6808+County+Road+675,+Bradenton,+FL+34211" target="_blank" rel="noopener" id="loc-dir">Open Directions in Google Maps</a>
+    </div>
+    <div class="reveal">
+      <h3>Everyday</h3>
+      <ul>
+        <li><span class="n">Lakewood Ranch Medical Center</span><span class="d"></span><span class="v">13 mi<em>&middot;</em>25 min</span></li>
+        <li><span class="n">Waterside Place, Lakewood Ranch</span><span class="d"></span><span class="v">14 mi<em>&middot;</em>25 min</span></li>
+        <li><span class="n">Costco Wholesale &mdash; Bradenton</span><span class="d"></span><span class="v">15 mi<em>&middot;</em>25 min</span></li>
+        <li><span class="n">I-75 &middot; Exit 220 (SR 64)</span><span class="d"></span><span class="v">15 mi<em>&middot;</em>25 min</span></li>
+        <li><span class="n">The Mall at University Town Center</span><span class="d"></span><span class="v">17 mi<em>&middot;</em>30 min</span></li>
+      </ul>
+      <h3>Coast &amp; Air</h3>
+      <ul>
+        <li><span class="n">Sarasota-Bradenton Intl (SRQ)</span><span class="d"></span><span class="v">23 mi<em>&middot;</em>40 min</span></li>
+        <li><span class="n">Siesta Key Beach</span><span class="d"></span><span class="v">30 mi<em>&middot;</em>45 min</span></li>
+        <li><span class="n">Anna Maria Island</span><span class="d"></span><span class="v">29 mi<em>&middot;</em>50 min</span></li>
+      </ul>
+    </div>
+    <p class="loc-note reveal">Approximate driving distances and typical drive times from the property. Actual times vary with traffic, route and season; buyer to verify.</p>
+  </div>
+</section>
+
 <section class="notify" id="notify">
   <div class="wrap">
     <span class="kicker">Full Listing Drops Soon</span>
@@ -430,7 +483,7 @@ footer b{color:var(--brass-soft);letter-spacing:.18em;text-transform:uppercase}
 document.getElementById('lead-form').addEventListener('submit', async e => {
   e.preventDefault();
   const f = e.target, btn = document.getElementById('lf-btn');
-  btn.disabled = true; btn.textContent = 'Sending\u2026';
+  btn.disabled = true; btn.textContent = 'Sending…';
   try {
     await fetch('https://script.google.com/macros/s/AKfycby9RaqCAm--RnDxvfnWW_3J3yt3PDIBrzG8rop9Z0yxrBfcq2ZsTN0DXTBh0rt76hMtsw/exec', {
       method: 'POST', mode: 'no-cors',
