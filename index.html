@@ -37,6 +37,9 @@ fbq('init','1372526691115291');fbq('track','PageView');
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"RealEstateListing","name":"8.5-Acre Equestrian Estate — 6808 County Road 675, Bradenton, FL 34211","url":"https://6808countyroad675bradentonfl.com/","image":["https://6808countyroad675bradentonfl.com/photos/pool-sunset.jpg","https://6808countyroad675bradentonfl.com/photos/house-front.jpg","https://6808countyroad675bradentonfl.com/photos/main-kitchen.jpg","https://6808countyroad675bradentonfl.com/photos/main-copper-tub.jpg"],"description":"Coming soon: fully remodeled multi-generational equestrian estate on 8.5 gated acres in Bradenton, FL 34211. Beach-entry saltwater pool with spa, 5-stall barn, 3 stocked ponds, RV hookup, and a private ~1,800 sq ft studio apartment with separate meter.","about":{"@type":"SingleFamilyResidence","address":{"@type":"PostalAddress","streetAddress":"6808 County Road 675","addressLocality":"Bradenton","addressRegion":"FL","postalCode":"34211","addressCountry":"US"},"geo":{"@type":"GeoCoordinates","latitude":27.4199,"longitude":-82.30377},"numberOfBathroomsTotal":4,"lotSize":{"@type":"QuantitativeValue","value":8.55,"unitText":"acres"}}}
 </script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"VideoObject","name":"6808 County Road 675, Bradenton, FL — Property Tour","description":"Seven-minute filmed tour of the 8.5-acre equestrian estate: pastures, three stocked ponds, five-stall barn, saltwater pool, remodeled main residence, and guest apartment.","thumbnailUrl":"https://i.ytimg.com/vi/Dgqg5hTptmo/maxresdefault.jpg","uploadDate":"2026-09-18","duration":"PT7M4S","embedUrl":"https://www.youtube-nocookie.com/embed/Dgqg5hTptmo","contentUrl":"https://www.youtube.com/watch?v=Dgqg5hTptmo","url":"https://6808countyroad675bradentonfl.com/#video"}
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,600;9..144,700&family=Figtree:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -135,6 +138,16 @@ h2{font-family:var(--serif);font-weight:400;font-size:clamp(1.9rem,3.6vw,2.9rem)
 
 /* apartment */
 .apt{background:var(--cream)}
+.video{background:var(--pine);color:var(--cream)}
+.video .lede{color:rgba(244,239,230,.82)}
+.vid{position:relative;margin-top:2.2rem;aspect-ratio:16/9;background:#000 center/cover no-repeat;border:1px solid rgba(201,162,39,.45);cursor:pointer;overflow:hidden}
+.vid::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(18,33,27,0) 40%,rgba(18,33,27,.35))}
+.vid-play{position:absolute;inset:0;z-index:2;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1rem;color:var(--cream);text-decoration:none;font-size:.78rem;letter-spacing:.3em;text-transform:uppercase;font-weight:600}
+.vid-play span{display:grid;place-items:center;width:5.2rem;height:5.2rem;border-radius:50%;border:1px solid var(--brass-soft);background:rgba(18,33,27,.55);backdrop-filter:blur(4px);transition:.25s}
+.vid-play span::before{content:"";margin-left:.3rem;border-style:solid;border-width:.8rem 0 .8rem 1.35rem;border-color:transparent transparent transparent var(--brass-soft)}
+.vid:hover .vid-play span{background:var(--brass);border-color:var(--brass)}
+.vid:hover .vid-play span::before{border-left-color:var(--pine-deep)}
+.vid iframe{position:absolute;inset:0;width:100%;height:100%;border:0;z-index:3}
 .apt-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:.7rem;margin-top:3rem}
 .apt-grid a{overflow:hidden}
 .apt-grid img{width:100%;height:100%;object-fit:cover;aspect-ratio:4/3;transition:transform .6s ease}
@@ -241,6 +254,19 @@ footer b{color:var(--brass-soft);letter-spacing:.18em;text-transform:uppercase}
       <p class="lede">Completely remodeled, equestrian-ready, and loaded with luxury features that hit every lifestyle lane — located in the top-rated Lakewood Ranch school district. Luxury. Land. Lifestyle. Location. This estate delivers for families, investors, equestrians, and anyone craving the Florida dream.</p>
     </div>
     <img class="reveal" src="photos/house-front-lawn.jpg" alt="Main residence and oversized garage behind board fencing on a bright Florida day" loading="lazy">
+  </div>
+</section>
+
+<section class="video" id="video">
+  <div class="wrap">
+    <div class="reveal">
+      <span class="kicker">Walk the Property</span>
+      <h2>Seven minutes on the estate.</h2>
+      <p class="lede">Pastures, ponds, the barn, the pool, and every finished space &mdash; filmed on site. Press play for the full tour.</p>
+    </div>
+    <div class="vid reveal" id="vid" style="background-image:url('https://i.ytimg.com/vi/Dgqg5hTptmo/maxresdefault.jpg')" role="button" tabindex="0" aria-label="Play the property tour video">
+      <a class="vid-play" href="https://www.youtube.com/watch?v=Dgqg5hTptmo" target="_blank" rel="noopener"><span></span>Play the tour</a>
+    </div>
   </div>
 </section>
 
@@ -499,6 +525,7 @@ document.querySelectorAll('input[name="realtor"]').forEach(r=>r.addEventListener
 document.getElementById('lf-brochure').addEventListener('click',()=>{if(typeof gtag==='function')gtag('event','file_download',{event_category:'brochure',event_label:'gated_pdf',file_name:'brochure.pdf'});if(typeof fbq==='function')fbq('trackCustom','BrochureDownload');});
 const io = new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.15});
 document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+(()=>{const v=document.getElementById('vid');if(!v)return;const go=e=>{e.preventDefault();if(v.dataset.on)return;v.dataset.on=1;const f=document.createElement('iframe');f.src='https://www.youtube-nocookie.com/embed/Dgqg5hTptmo?autoplay=1&rel=0&modestbranding=1';f.allow='accelerometer;autoplay;encrypted-media;gyroscope;picture-in-picture';f.allowFullscreen=true;f.title='6808 County Road 675 property tour';v.appendChild(f);if(typeof gtag==='function')gtag('event','video_play',{event_category:'video',event_label:'property_tour'});if(typeof fbq==='function')fbq('trackCustom','VideoPlay')};v.addEventListener('click',go);v.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' ')go(e)})})();
 const mhSeen=new Set();const mhFire=c=>{const l=c.querySelector('.mh-num').textContent+' '+c.querySelector('h3').textContent;if(mhSeen.has(l))return;mhSeen.add(l);if(typeof gtag==='function')gtag('event','card_flip',{event_category:'main_residence',event_label:l})};document.querySelectorAll('.mh-card').forEach(c=>{const t=()=>{const on=c.classList.toggle('flipped');c.setAttribute('aria-pressed',on);if(on)mhFire(c)};c.addEventListener('click',t);c.addEventListener('mouseenter',()=>mhFire(c),{once:true});c.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();t()}})});
 </script>
 </body>
