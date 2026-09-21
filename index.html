@@ -168,6 +168,15 @@ h2{font-family:var(--serif);font-weight:400;font-size:clamp(1.9rem,3.6vw,2.9rem)
 @media(max-width:700px){.eq-photos{grid-template-columns:1fr}}
 @media(max-width:700px){.apt-grid{grid-template-columns:1fr}}
 
+/* every corner */
+.corners{background:var(--cream)}
+.corner-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:.6rem;margin-top:3rem}
+.corner-grid a{position:relative;overflow:hidden;display:block}
+.corner-grid img{width:100%;aspect-ratio:1/1;object-fit:cover;transition:transform .6s ease}
+.corner-grid a:hover img{transform:scale(1.05)}
+.corner-grid span{position:absolute;left:0;right:0;bottom:0;padding:1.4rem .8rem .6rem;background:linear-gradient(180deg,rgba(18,33,27,0),rgba(18,33,27,.78));color:var(--cream);font-size:.66rem;letter-spacing:.18em;text-transform:uppercase;font-weight:600;pointer-events:none}
+@media(max-width:700px){.corner-grid{grid-template-columns:repeat(2,1fr);gap:.45rem}}
+
 /* plot map */
 .plot .wrap{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
 .plot img{border:1px solid rgba(34,32,27,.15)}
@@ -492,6 +501,34 @@ footer b{color:var(--brass-soft);letter-spacing:.18em;text-transform:uppercase}
       <a href="photos/pond-mist.jpg" class="reveal"><img src="photos/pond-mist.jpg" alt="Sunrise mist over the pond behind board fencing" loading="lazy"></a>
       <a href="photos/porch-swing.jpg" class="reveal tall"><img src="photos/porch-swing.jpg" alt="Wooden porch swing overlooking the lily pond and gazebo at sunset" loading="lazy"></a>
       <a href="photos/pool-sunset.jpg" class="reveal"><img src="photos/pool-sunset.jpg" alt="Sunset reflected in the pool" loading="lazy"></a>
+    </div>
+  </div>
+</section>
+
+<section class="corners" id="every-corner">
+  <div class="wrap">
+    <div class="reveal">
+      <span class="kicker">Every Corner</span>
+      <h2>The rooms and spaces the headlines skip.</h2>
+      <p class="lede">The office, the lanai, the porches, the guest baths, the laundry, the coop, the RV pad &mdash; the everyday spaces, finished to the same standard as the showpieces.</p>
+    </div>
+    <div class="corner-grid">
+      <a href="photos/main-house-front.jpg" class="reveal"><img src="photos/main-house-front.jpg" alt="Front of the main house beneath a bright Florida sky" loading="lazy"><span>Main house, front lawn</span></a>
+      <a href="photos/main-office.jpg" class="reveal"><img src="photos/main-office.jpg" alt="Home office with sliding barn door and pasture views" loading="lazy"><span>Office with barn door</span></a>
+      <a href="photos/lanai-seating.jpg" class="reveal"><img src="photos/lanai-seating.jpg" alt="Screened lanai seating area with French doors to the house" loading="lazy"><span>Screened lanai</span></a>
+      <a href="photos/lanai-tv.jpg" class="reveal"><img src="photos/lanai-tv.jpg" alt="Covered lanai lounge with television wall and bar" loading="lazy"><span>Lanai lounge &amp; bar</span></a>
+      <a href="photos/porch-wrap.jpg" class="reveal"><img src="photos/porch-wrap.jpg" alt="Wrap-around paver porch with stone columns" loading="lazy"><span>Wrap-around porch</span></a>
+      <a href="photos/porch-hammock.jpg" class="reveal"><img src="photos/porch-hammock.jpg" alt="Hammock strung between porch columns overlooking the pasture" loading="lazy"><span>Hammock on the porch</span></a>
+      <a href="photos/outdoor-shower.jpg" class="reveal"><img src="photos/outdoor-shower.jpg" alt="Private outdoor shower enclosure with wood slat screen" loading="lazy"><span>Private outdoor shower</span></a>
+      <a href="photos/bedroom-2.jpg" class="reveal"><img src="photos/bedroom-2.jpg" alt="Second primary bedroom with sage accent alcove" loading="lazy"><span>Second primary bedroom</span></a>
+      <a href="photos/bedroom-2-bath.jpg" class="reveal"><img src="photos/bedroom-2-bath.jpg" alt="Second primary bath with stone-tile walk-in shower" loading="lazy"><span>Second primary bath</span></a>
+      <a href="photos/bedroom-3.jpg" class="reveal"><img src="photos/bedroom-3.jpg" alt="Third bedroom with sliding doors to the porch" loading="lazy"><span>Bedroom three</span></a>
+      <a href="photos/hall-bath.jpg" class="reveal"><img src="photos/hall-bath.jpg" alt="Guest bath with freestanding tub and wood-mosaic wall" loading="lazy"><span>Guest bath</span></a>
+      <a href="photos/master-bath-tile.jpg" class="reveal"><img src="photos/master-bath-tile.jpg" alt="Hand-painted sun-and-moon tile detail in the primary bath" loading="lazy"><span>Primary bath detail</span></a>
+      <a href="photos/main-laundry.jpg" class="reveal"><img src="photos/main-laundry.jpg" alt="Laundry room with washer, dryer, utility sink and hanging rail" loading="lazy"><span>Laundry room</span></a>
+      <a href="photos/chicken-coop.jpg" class="reveal"><img src="photos/chicken-coop.jpg" alt="Custom timber chicken coop in the side pasture" loading="lazy"><span>Chicken coop</span></a>
+      <a href="photos/rv-pad.jpg" class="reveal"><img src="photos/rv-pad.jpg" alt="Concrete RV pad with 50-amp service" loading="lazy"><span>RV pad, 50-amp</span></a>
+      <a href="photos/sunset-pasture.jpg" class="reveal"><img src="photos/sunset-pasture.jpg" alt="Sunset over the board-fenced pasture and pond" loading="lazy"><span>Sunset over the pasture</span></a>
     </div>
   </div>
 </section>
