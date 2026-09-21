@@ -152,6 +152,13 @@ h2{font-family:var(--serif);font-weight:400;font-size:clamp(1.9rem,3.6vw,2.9rem)
 .apt-grid a{overflow:hidden}
 .apt-grid img{width:100%;height:100%;object-fit:cover;aspect-ratio:4/3;transition:transform .6s ease}
 .apt-grid a:hover img{transform:scale(1.05)}
+.eq{background:var(--travertine)}
+.eq .feat-grid{margin-top:2.4rem}
+.eq-photos{display:grid;grid-template-columns:1.4fr 1fr;gap:.7rem;margin-top:3rem}
+.eq-photos a{overflow:hidden;display:block}
+.eq-photos img{width:100%;height:100%;object-fit:cover;aspect-ratio:4/3;transition:transform .6s ease}
+.eq-photos a:hover img{transform:scale(1.05)}
+@media(max-width:700px){.eq-photos{grid-template-columns:1fr}}
 @media(max-width:700px){.apt-grid{grid-template-columns:1fr}}
 
 /* plot map */
@@ -388,6 +395,56 @@ footer b{color:var(--brass-soft);letter-spacing:.18em;text-transform:uppercase}
   </div>
 </section>
 
+<section class="eq" id="equestrian">
+  <div class="wrap">
+    <div class="reveal">
+      <span class="kicker">The Equestrian Program</span>
+      <h2>Look out any window and see your horses.</h2>
+      <p class="lede">A working setup, not a decorative one: five stalls under a 2019 barn, cross-fenced pastures with gated divisions, a separate run-in pasture, and Panther Ridge's private trail system right out the back gate &mdash; a quick hack without ever hitching a trailer.</p>
+    </div>
+    <div class="feat-grid">
+      <div class="feat reveal">
+        <h3>The Barn</h3>
+        <ul>
+          <li>Five 12&times;12 stalls, dual-entrance for easy rotation, covered access</li>
+          <li>Mister fans in every stall</li>
+          <li>Concrete aisleway; wash rack with hot water</li>
+          <li>Oversized tack room with saddle racks &amp; loft storage</li>
+          <li>Covered hay &amp; feed storage; barn office</li>
+          <li>Grid footing around the entire barn area &mdash; no low or wet spots</li>
+          <li>Finished groom/trainer quarters: the Barn Suite</li>
+        </ul>
+      </div>
+      <div class="feat reveal">
+        <h3>Pastures &amp; Fencing</h3>
+        <ul>
+          <li>Fully gated perimeter</li>
+          <li>4-board cross-fenced pastures with gates for division</li>
+          <li>All exterior board fencing lined with 4" wire for small-animal containment</li>
+          <li>Separate ~1&frac12;-acre pasture with 24&times;24 three-sided run-in shed, electric &amp; water</li>
+          <li>Room for an arena and round pen</li>
+          <li>Three stocked ponds</li>
+        </ul>
+      </div>
+      <div class="feat reveal">
+        <h3>Hauling &amp; Riding Out</h3>
+        <ul>
+          <li>Circular drive for trailer in-and-out, loading and unloading</li>
+          <li>Ample trailer parking; RV pad with 50-amp service</li>
+          <li>Back-gate access to private community trails</li>
+          <li>Terra Nova Equestrian Center &mdash; 18 minutes</li>
+          <li>Fox Lea Farm &mdash; 40 minutes</li>
+          <li>World Equestrian Center, Ocala &mdash; straight up I-75, under 2&frac12; hours</li>
+        </ul>
+      </div>
+    </div>
+    <div class="eq-photos">
+      <a href="photos/barn-stalls.jpg" class="reveal"><img src="photos/barn-stalls.jpg" alt="Five-stall barn aisle with timber stall fronts and steel trusses" loading="lazy"></a>
+      <a href="photos/horses-pond.jpg" class="reveal"><img src="photos/horses-pond.jpg" alt="Horses grazing in a board-fenced pasture beside a stocked pond" loading="lazy"></a>
+    </div>
+  </div>
+</section>
+
 <section class="gallery">
   <div class="wrap">
     <span class="kicker">First Look</span>
@@ -456,6 +513,26 @@ footer b{color:var(--brass-soft);letter-spacing:.18em;text-transform:uppercase}
         <li><span class="n">Sarasota-Bradenton Intl (SRQ)</span><span class="d"></span><span class="v">23 mi<em>&middot;</em>40 min</span></li>
         <li><span class="n">Siesta Key Beach</span><span class="d"></span><span class="v">30 mi<em>&middot;</em>45 min</span></li>
         <li><span class="n">Anna Maria Island</span><span class="d"></span><span class="v">29 mi<em>&middot;</em>50 min</span></li>
+      </ul>
+    </div>
+    <div class="reveal">
+      <h3>Around the Estate</h3>
+      <ul>
+        <li><span class="n">Hunsader Farms &mdash; market, u-pick, festivals</span><span class="d"></span><span class="v">2 mi<em>&middot;</em>5 min</span></li>
+        <li><span class="n">TreeUmph! Adventure Course</span><span class="d"></span><span class="v">2 mi<em>&middot;</em>5 min</span></li>
+        <li><span class="n">Rosa Fiorelli Winery &amp; Vineyard</span><span class="d"></span><span class="v">3 mi<em>&middot;</em>6 min</span></li>
+        <li><span class="n">Myakka Elephant Ranch</span><span class="d"></span><span class="v">5 mi<em>&middot;</em>10 min</span></li>
+        <li><span class="n">Myakka River State Park</span><span class="d"></span><span class="v">16 mi<em>&middot;</em>25 min</span></li>
+      </ul>
+    </div>
+    <div class="reveal">
+      <h3>Ride &amp; Show</h3>
+      <ul>
+        <li><span class="n">Panther Ridge private trails</span><span class="d"></span><span class="v">back gate</span></li>
+        <li><span class="n">Terra Nova Equestrian Center, Myakka City</span><span class="d"></span><span class="v">13 mi<em>&middot;</em>18 min</span></li>
+        <li><span class="n">Fox Lea Farm, Venice</span><span class="d"></span><span class="v">30 mi<em>&middot;</em>40 min</span></li>
+        <li><span class="n">World Equestrian Center, Ocala</span><span class="d"></span><span class="v">2&frac12; hr</span></li>
+        <li><span class="n">Feed &amp; hay supply</span><span class="d"></span><span class="v">&lt; 5 mi</span></li>
       </ul>
     </div>
     <p class="loc-note reveal">Approximate driving distances and typical drive times from the property. Actual times vary with traffic, route and season; buyer to verify.</p>
