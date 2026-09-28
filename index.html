@@ -77,6 +77,8 @@ img{display:block;max-width:100%}
 .btn{display:inline-block;padding:.95rem 2.1rem;border:1px solid var(--brass-soft);color:var(--cream);text-decoration:none;letter-spacing:.18em;text-transform:uppercase;font-size:.78rem;font-weight:600;transition:.25s}
 .btn.solid{background:var(--brass);border-color:var(--brass);color:var(--pine-deep)}
 .btn:hover{background:var(--brass-soft);border-color:var(--brass-soft);color:var(--pine-deep)}
+.hero .btn:not(.solid){background:rgba(18,33,27,.82)}
+.hero .btn:not(.solid):hover{background:var(--brass-soft)}
 @keyframes rise{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:none}}
 
 /* ---------- STAT STRIP ---------- */
@@ -123,10 +125,15 @@ h2{font-family:var(--serif);font-weight:400;font-size:clamp(1.9rem,3.6vw,2.9rem)
 .fp-block ul{list-style:none;columns:2;column-gap:2.8rem;margin-top:1.6rem}
 .fp-block li{break-inside:avoid;padding:.5rem 0 .5rem 1.4rem;position:relative;border-bottom:1px solid rgba(34,32,27,.08)}
 .fp-block li::before{content:"◆";position:absolute;left:0;top:.55rem;font-size:.55rem;color:var(--brass)}
-.fp-photos{display:grid;grid-template-columns:repeat(3,1fr);gap:.6rem;margin-top:2rem}
+.fp-photos{display:grid;grid-template-columns:repeat(4,1fr);gap:.6rem;margin-top:2rem}
+.fp-photos a{cursor:zoom-in}
+.fp-doc{position:relative;background:#fff;border:1px solid rgba(201,162,39,.5);cursor:pointer!important}
+.fp-doc img{object-fit:cover;object-position:top}
+.fp-doc span{position:absolute;left:0;right:0;bottom:0;padding:.55rem .7rem;background:var(--pine);color:var(--cream);font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;font-weight:600}
 .fp-photos a{overflow:hidden;display:block}
 .fp-photos img{width:100%;aspect-ratio:4/3;object-fit:cover;transition:transform .6s ease}
 .fp-photos a:hover img{transform:scale(1.05)}
+@media(max-width:900px){.fp-photos{grid-template-columns:repeat(3,1fr)}}
 @media(max-width:700px){.fp-block ul{columns:1}.fp-photos{grid-template-columns:repeat(2,1fr)}}
 .feat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:2.5rem;margin-top:3rem}
 .feat h3{font-family:var(--serif);font-weight:600;font-size:1.35rem;margin-bottom:1rem;display:flex;align-items:center;gap:.6rem}
@@ -169,6 +176,7 @@ h2{font-family:var(--serif);font-weight:400;font-size:clamp(1.9rem,3.6vw,2.9rem)
 .apt{background:var(--cream)}
 .tours{background:var(--pine);color:var(--cream)}
 .tours .lede{color:rgba(244,239,230,.82)}
+.tour-desc{margin-top:1rem;font-size:.98rem;line-height:1.55;color:rgba(244,239,230,.85);max-width:34rem}
 .tour-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;margin-top:2.4rem}
 .tour-card{position:relative;display:block;width:100%;aspect-ratio:4/5;overflow:hidden;border:0;padding:0;cursor:pointer;background:#000;border-radius:18px;font:inherit;color:var(--cream);text-align:left}
 .tour-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 1.2s ease}
@@ -209,6 +217,14 @@ h2{font-family:var(--serif);font-weight:400;font-size:clamp(1.9rem,3.6vw,2.9rem)
 .tp-ctrl{display:flex;align-items:center;gap:.6rem;margin-top:.8rem}
 .tp-btn{width:2.6rem;height:2.6rem;border-radius:50%;border:1px solid rgba(255,255,255,.6);background:rgba(0,0,0,.3);color:#fff;font-size:1rem;line-height:1;cursor:pointer;display:grid;place-items:center}
 .tp-btn:hover{background:var(--brass);border-color:var(--brass);color:var(--pine-deep)}
+.tp-exit{display:inline-flex;align-items:center;gap:.55rem;padding:.7rem 1.2rem;border-radius:999px;border:1.5px solid var(--brass-soft);background:rgba(18,33,27,.75);color:var(--cream);font:600 .78rem var(--sans);letter-spacing:.16em;text-transform:uppercase;cursor:pointer}
+.tp-exit:hover{background:var(--brass);color:var(--pine-deep);border-color:var(--brass)}
+.tp-exit b{font-size:1rem;line-height:1}
+.tp-tr{display:flex;align-items:center;gap:.6rem}
+.tp-end .btn{cursor:pointer;font-family:var(--sans)}
+.tp-end .btn.light{background:var(--cream);border-color:var(--cream);color:var(--pine-deep)}
+.tp-end .btn.dark{background:var(--pine);border-color:var(--brass-soft);color:var(--cream)}
+.tp-end .btn.light:hover,.tp-end .btn.dark:hover{background:var(--brass-soft);border-color:var(--brass-soft);color:var(--pine-deep)}
 .tp-prog{flex:1;height:2px;background:rgba(255,255,255,.25);position:relative;overflow:hidden}
 .tp-prog i{position:absolute;left:0;top:0;bottom:0;width:0;background:var(--brass-soft)}
 .tp-count{font-size:.75rem;letter-spacing:.12em;min-width:3.6rem;text-align:right;opacity:.8}
@@ -407,11 +423,12 @@ footer b{color:var(--brass-soft);letter-spacing:.18em;text-transform:uppercase}
 <section class="tours" id="tours">
   <div class="wrap">
     <div class="reveal">
-      <span class="kicker">Cinematic Photo Tours</span>
-      <h2>Take the tour.</h2>
-      <p class="lede">Two short photo tours &mdash; the grounds from the front gate to the back pasture, then the house from the front door through.</p>
+      <span class="kicker">Walk the Property</span>
+      <h2>Take a Cinematic Tour</h2>
+      <p class="lede">Press play, turn up the sound, and settle in.</p>
     </div>
     <div class="tour-grid">
+      <div class="tour-item">
       <button class="tour-card reveal" type="button" data-tour="outside" aria-label="Play the Quick Property Glance photo tour">
         <img src="photos/house-front-lawn.jpg" alt="" loading="lazy">
         <span class="tour-play"></span>
@@ -421,6 +438,9 @@ footer b{color:var(--brass-soft);letter-spacing:.18em;text-transform:uppercase}
           <span class="tb-go"></span>
         </span>
       </button>
+      <p class="tour-desc">The &ldquo;Quick Property Glance&rdquo; tour will take you on a stroll around the property from the front gate back to the barn.</p>
+      </div>
+      <div class="tour-item">
       <button class="tour-card reveal" type="button" data-tour="inside" aria-label="Play the Come on Inside photo tour">
         <img src="photos/main-foyer.jpg" alt="" loading="lazy">
         <span class="tour-play"></span>
@@ -430,6 +450,8 @@ footer b{color:var(--brass-soft);letter-spacing:.18em;text-transform:uppercase}
           <span class="tb-go"></span>
         </span>
       </button>
+      <p class="tour-desc">The &ldquo;Come on Inside&rdquo; tour will walk you through the fully custom remodeled main house.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -456,12 +478,30 @@ footer b{color:var(--brass-soft);letter-spacing:.18em;text-transform:uppercase}
         <li>Whole-house generator</li>
       </ul>
       <div class="fp-photos">
-        <a href="photos/great-room.jpg" class="reveal"><img src="photos/great-room.jpg" alt="Great room with sectional facing the stacked-stone fireplace" loading="lazy"></a>
-        <a href="photos/main-kitchen.jpg" class="reveal"><img src="photos/main-kitchen.jpg" alt="Chef&#39;s kitchen with copper-topped bar" loading="lazy"></a>
-        <a href="photos/primary-suite-sitting.jpg" class="reveal"><img src="photos/primary-suite-sitting.jpg" alt="Primary suite sitting area with French doors" loading="lazy"></a>
-        <a href="photos/main-copper-tub.jpg" class="reveal"><img src="photos/main-copper-tub.jpg" alt="Hammered-copper soaking tub in the primary bath" loading="lazy"></a>
-        <a href="photos/lanai-seating.jpg" class="reveal"><img src="photos/lanai-seating.jpg" alt="Screened lanai with 20-ft ceiling" loading="lazy"></a>
-        <a href="photos/pool-day.jpg" class="reveal"><img src="photos/pool-day.jpg" alt="Beach-entry saltwater pool overlooking the pasture" loading="lazy"></a>
+        <a href="photos/set2/foyer.jpg" class="reveal" data-set="mh" data-i="0"><img src="photos/set2/foyer.jpg" alt="The foyer" loading="lazy"></a>
+        <a href="photos/set2/dining.jpg" class="reveal" data-set="mh" data-i="1"><img src="photos/set2/dining.jpg" alt="Dining room" loading="lazy"></a>
+        <a href="photos/set2/living-2.jpg" class="reveal" data-set="mh" data-i="2"><img src="photos/set2/living-2.jpg" alt="Great room &amp; fireplace" loading="lazy"></a>
+        <a href="photos/set2/living-5.jpg" class="reveal" data-set="mh" data-i="3"><img src="photos/set2/living-5.jpg" alt="Great room to the kitchen" loading="lazy"></a>
+        <a href="photos/set2/kitchen-1.jpg" class="reveal" data-set="mh" data-i="4"><img src="photos/set2/kitchen-1.jpg" alt="Kitchen" loading="lazy"></a>
+        <a href="photos/set2/kitchen-2.jpg" class="reveal" data-set="mh" data-i="5"><img src="photos/set2/kitchen-2.jpg" alt="Chef&rsquo;s kitchen" loading="lazy"></a>
+        <a href="photos/set2/kitchen-3.jpg" class="reveal" data-set="mh" data-i="6"><img src="photos/set2/kitchen-3.jpg" alt="Copper-topped breakfast bar" loading="lazy"></a>
+        <a href="photos/set2/kitchen-4.jpg" class="reveal" data-set="mh" data-i="7"><img src="photos/set2/kitchen-4.jpg" alt="Kitchen, range side" loading="lazy"></a>
+        <a href="photos/set2/beverage-bar.jpg" class="reveal" data-set="mh" data-i="8"><img src="photos/set2/beverage-bar.jpg" alt="Coffee &amp; wine bar" loading="lazy"></a>
+        <a href="photos/set2/primary-1.jpg" class="reveal" data-set="mh" data-i="9"><img src="photos/set2/primary-1.jpg" alt="First primary suite" loading="lazy"></a>
+        <a href="photos/set2/primary-3.jpg" class="reveal" data-set="mh" data-i="10"><img src="photos/set2/primary-3.jpg" alt="Primary walk-in shower" loading="lazy"></a>
+        <a href="photos/set2/primary-5.jpg" class="reveal" data-set="mh" data-i="11"><img src="photos/set2/primary-5.jpg" alt="Hammered-copper soaking tub" loading="lazy"></a>
+        <a href="photos/set2/primary-6.jpg" class="reveal" data-set="mh" data-i="12"><img src="photos/set2/primary-6.jpg" alt="Primary bath detail" loading="lazy"></a>
+        <a href="photos/set2/second-primary-1.jpg" class="reveal" data-set="mh" data-i="13"><img src="photos/set2/second-primary-1.jpg" alt="Second primary suite" loading="lazy"></a>
+        <a href="photos/set2/second-primary-2.jpg" class="reveal" data-set="mh" data-i="14"><img src="photos/set2/second-primary-2.jpg" alt="Second primary ensuite" loading="lazy"></a>
+        <a href="photos/set2/hall.jpg" class="reveal" data-set="mh" data-i="15"><img src="photos/set2/hall.jpg" alt="Hall to the kitchen" loading="lazy"></a>
+        <a href="photos/set2/office-2.jpg" class="reveal" data-set="mh" data-i="16"><img src="photos/set2/office-2.jpg" alt="Office" loading="lazy"></a>
+        <a href="photos/set2/laundry-2.jpg" class="reveal" data-set="mh" data-i="17"><img src="photos/set2/laundry-2.jpg" alt="Laundry room" loading="lazy"></a>
+        <a href="photos/set2/lanai-1.jpg" class="reveal" data-set="mh" data-i="18"><img src="photos/set2/lanai-1.jpg" alt="Screened lanai" loading="lazy"></a>
+        <a href="photos/set2/lanai-2.jpg" class="reveal" data-set="mh" data-i="19"><img src="photos/set2/lanai-2.jpg" alt="Screened lanai" loading="lazy"></a>
+        <a href="photos/set2/lanai-3.jpg" class="reveal" data-set="mh" data-i="20"><img src="photos/set2/lanai-3.jpg" alt="Screened lanai" loading="lazy"></a>
+        <a href="photos/set2/apt-7.jpg" class="reveal" data-set="mh" data-i="21"><img src="photos/set2/apt-7.jpg" alt="Loft apartment" loading="lazy"></a>
+        <a href="photos/set2/apt-8.jpg" class="reveal" data-set="mh" data-i="22"><img src="photos/set2/apt-8.jpg" alt="Sleeping loft" loading="lazy"></a>
+        <a href="photos/set2/apt-9.jpg" class="reveal" data-set="mh" data-i="23"><img src="photos/set2/apt-9.jpg" alt="Apartment bath" loading="lazy"></a>
       </div>
     </div>
 
@@ -478,15 +518,20 @@ footer b{color:var(--brass-soft);letter-spacing:.18em;text-transform:uppercase}
         <li>Attached 1,298 sq ft Barn Suite with pine ceilings &mdash; kitchen, full bath, washer/dryer, loft, and screened-in porch</li>
       </ul>
       <div class="fp-photos">
-        <a href="photos/barn-stalls.jpg" class="reveal"><img src="photos/barn-stalls.jpg" alt="Five-stall barn aisle with timber stall fronts" loading="lazy"></a>
-        <a href="photos/horses-pond.jpg" class="reveal"><img src="photos/horses-pond.jpg" alt="Horses grazing in a board-fenced pasture beside a pond" loading="lazy"></a>
-        <a href="photos/pond-mist.jpg" class="reveal"><img src="photos/pond-mist.jpg" alt="Sunrise mist over the pasture behind board fencing" loading="lazy"></a>
-        <a href="photos/barn-patio.jpg" class="reveal"><img src="photos/barn-patio.jpg" alt="Screened porch entrance to the Barn Suite" loading="lazy"></a>
-        <a href="photos/barn-living.jpg" class="reveal"><img src="photos/barn-living.jpg" alt="Barn Suite living room with pine ceiling and loft stair" loading="lazy"></a>
-        <a href="photos/barn-kitchen.jpg" class="reveal"><img src="photos/barn-kitchen.jpg" alt="Barn Suite kitchen beneath the loft" loading="lazy"></a>
-        <a href="photos/barn-bedroom.jpg" class="reveal"><img src="photos/barn-bedroom.jpg" alt="Barn Suite bedroom" loading="lazy"></a>
-        <a href="photos/barn-bath.jpg" class="reveal"><img src="photos/barn-bath.jpg" alt="Barn Suite bath with sage vanity" loading="lazy"></a>
-        <a href="photos/barn-laundry.jpg" class="reveal"><img src="photos/barn-laundry.jpg" alt="Barn Suite laundry with washer and dryer" loading="lazy"></a>
+        <a href="photos/set2/nature-01.jpg" class="reveal" data-set="eq" data-i="0"><img src="photos/set2/nature-01.jpg" alt="Horses at the pond" loading="lazy"></a>
+        <a href="photos/set2/nature-02.jpg" class="reveal" data-set="eq" data-i="1"><img src="photos/set2/nature-02.jpg" alt="Lily pond &amp; gazebo" loading="lazy"></a>
+        <a href="photos/set2/nature-06.jpg" class="reveal" data-set="eq" data-i="2"><img src="photos/set2/nature-06.jpg" alt="Live oak at sunset" loading="lazy"></a>
+        <a href="photos/set2/nature-05.jpg" class="reveal" data-set="eq" data-i="3"><img src="photos/set2/nature-05.jpg" alt="Sunset through the fence line" loading="lazy"></a>
+        <a href="photos/set2/nature-10.jpg" class="reveal" data-set="eq" data-i="4"><img src="photos/set2/nature-10.jpg" alt="Sunset over the pasture" loading="lazy"></a>
+        <a href="photos/set2/nature-03.jpg" class="reveal" data-set="eq" data-i="5"><img src="photos/set2/nature-03.jpg" alt="Oaks &amp; open pasture" loading="lazy"></a>
+        <a href="photos/set2/barn-5-stall.jpg" class="reveal" data-set="eq" data-i="6"><img src="photos/set2/barn-5-stall.jpg" alt="Five-stall barn" loading="lazy"></a>
+        <a href="photos/set2/barn-2.jpg" class="reveal" data-set="eq" data-i="7"><img src="photos/set2/barn-2.jpg" alt="Barn &amp; covered trailer parking" loading="lazy"></a>
+        <a href="photos/set2/barn-suite-1.jpg" class="reveal" data-set="eq" data-i="8"><img src="photos/set2/barn-suite-1.jpg" alt="Barn Suite screened porch" loading="lazy"></a>
+        <a href="photos/set2/barn-suite-2.jpg" class="reveal" data-set="eq" data-i="9"><img src="photos/set2/barn-suite-2.jpg" alt="Barn Suite living &amp; loft" loading="lazy"></a>
+        <a href="photos/set2/barn-suite-3.jpg" class="reveal" data-set="eq" data-i="10"><img src="photos/set2/barn-suite-3.jpg" alt="Barn Suite bedroom" loading="lazy"></a>
+        <a href="photos/set2/barn-suite-4.jpg" class="reveal" data-set="eq" data-i="11"><img src="photos/set2/barn-suite-4.jpg" alt="Barn Suite kitchen" loading="lazy"></a>
+        <a href="photos/set2/barn-suite-5.jpg" class="reveal" data-set="eq" data-i="12"><img src="photos/set2/barn-suite-5.jpg" alt="Barn Suite bath" loading="lazy"></a>
+        <a href="photos/set2/barn-suite-6.jpg" class="reveal" data-set="eq" data-i="13"><img src="photos/set2/barn-suite-6.jpg" alt="Barn Suite laundry" loading="lazy"></a>
       </div>
     </div>
 
@@ -503,147 +548,14 @@ footer b{color:var(--brass-soft);letter-spacing:.18em;text-transform:uppercase}
         <li>Custom raised chicken condo with automated door and waterers, built-in feeders, and easy-access nesting boxes</li>
       </ul>
       <div class="fp-photos">
-        <a href="photos/rv-pad.jpg" class="reveal"><img src="photos/rv-pad.jpg" alt="20x50 concrete RV slab" loading="lazy"></a>
-        <a href="photos/pond-gazebo.jpg" class="reveal"><img src="photos/pond-gazebo.jpg" alt="Lily pond with fishing bridge and covered gazebo" loading="lazy"></a>
-        <a href="photos/porch-swing.jpg" class="reveal"><img src="photos/porch-swing.jpg" alt="Porch swing overlooking the pond and gazebo at sunset" loading="lazy"></a>
-        <a href="photos/chicken-coop.jpg" class="reveal"><img src="photos/chicken-coop.jpg" alt="Custom raised chicken condo" loading="lazy"></a>
-        <a href="photos/oak-swing.jpg" class="reveal"><img src="photos/oak-swing.jpg" alt="Live oak with Spanish moss and tree swing" loading="lazy"></a>
-        <a href="photos/front-entry.jpg" class="reveal"><img src="photos/front-entry.jpg" alt="Landscaped timber-framed front entry" loading="lazy"></a>
+        <a href="photos/set2/nature-13.jpg" class="reveal" data-set="perks" data-i="0"><img src="photos/set2/nature-13.jpg" alt="Stocked pond &amp; gazebo" loading="lazy"></a>
+        <a href="photos/set2/nature-06.jpg" class="reveal" data-set="perks" data-i="1"><img src="photos/set2/nature-06.jpg" alt="Live oak at sunset" loading="lazy"></a>
+        <a href="photos/set2/pool-5.jpg" class="reveal" data-set="perks" data-i="2"><img src="photos/set2/pool-5.jpg" alt="Evening over the pool" loading="lazy"></a>
+        <a href="photos/set2/rv-pad.jpg" class="reveal" data-set="perks" data-i="3"><img src="photos/set2/rv-pad.jpg" alt="20&times;50 RV slab" loading="lazy"></a>
+        <a href="photos/set2/chicken-condo.jpg" class="reveal" data-set="perks" data-i="4"><img src="photos/set2/chicken-condo.jpg" alt="Custom chicken condo" loading="lazy"></a>
+        <a href="/school-district.pdf" class="fp-doc reveal" target="_blank" rel="noopener" data-doc="school-district.pdf"><img src="photos/set2/school-sheet.jpg" alt="Exceptional Education in the Lakewood Ranch Area — school district sheet" loading="lazy"><span>School District Sheet &middot; PDF</span></a>
+        <a href="/panther-ridge-trails.pdf" class="fp-doc reveal" target="_blank" rel="noopener" data-doc="panther-ridge-trails.pdf"><img src="photos/set2/trail-sheet.jpg" alt="The Panther Ridge Equestrian Trail Lifestyle — trail system sheet" loading="lazy"><span>Panther Ridge Trail System &middot; PDF</span></a>
       </div>
-    </div>
-  </div>
-</section>
-
-<section class="main-home">
-  <div class="wrap">
-    <span class="kicker">The Main Residence</span>
-    <h2>Fully remodeled, top to bottom.</h2>
-    <p class="lede">Inside the 3,609 sq ft main house: a chef&rsquo;s kitchen open to the great room, a stacked-stone fireplace wall with custom built-ins, a copper-topped coffee &amp; wine bar, and designer baths &mdash; including a genuine hammered-copper soaking tub set against chevron tile beneath a chandelier. Every room finished, nothing left builder-grade.</p>
-    <div class="mh-grid">
-      <div class="mh-card reveal" tabindex="0" role="button" aria-pressed="false" aria-label="The Foyer details">
-        <div class="mh-inner">
-          <div class="mh-face mh-front"><img src="photos/main-foyer.jpg" alt="Foyer with orb chandelier and leaded-glass door surround" loading="lazy"></div>
-          <div class="mh-face mh-back"><span class="mh-num">01</span><h3>The Foyer</h3><p>Leaded-glass sidelights and transom frame the entry beneath an orb chandelier.</p></div>
-        </div>
-      </div>
-      <div class="mh-card reveal" tabindex="0" role="button" aria-pressed="false" aria-label="The Great Room details">
-        <div class="mh-inner">
-          <div class="mh-face mh-front"><img src="photos/great-room.jpg" alt="Great room sectional facing the stacked-stone fireplace and built-ins" loading="lazy"></div>
-          <div class="mh-face mh-back"><span class="mh-num">02</span><h3>The Great Room</h3><p>Hardwood floors, a stacked-stone fireplace, and room for the whole family to gather.</p></div>
-        </div>
-      </div>
-      <div class="mh-card reveal" tabindex="0" role="button" aria-pressed="false" aria-label="The Kitchen details">
-        <div class="mh-inner">
-          <div class="mh-face mh-front"><img src="photos/main-kitchen.jpg" alt="Chef&#39;s kitchen with sage cabinetry, copper-topped bar, and island hood" loading="lazy"></div>
-          <div class="mh-face mh-back"><span class="mh-num">03</span><h3>The Kitchen</h3><p>Sage cabinetry, stainless appliances, island vent hood, and a copper-topped bar.</p></div>
-        </div>
-      </div>
-      <div class="mh-card reveal" tabindex="0" role="button" aria-pressed="false" aria-label="The Fireplace Wall details">
-        <div class="mh-inner">
-          <div class="mh-face mh-front"><img src="photos/main-fireplace.jpg" alt="Stacked-stone fireplace with reclaimed-timber mantel and built-in shelving" loading="lazy"></div>
-          <div class="mh-face mh-back"><span class="mh-num">04</span><h3>The Fireplace Wall</h3><p>Stacked-stone surround, reclaimed-timber mantel, and flanking built-ins.</p></div>
-        </div>
-      </div>
-      <div class="mh-card reveal" tabindex="0" role="button" aria-pressed="false" aria-label="Coffee and Wine Bar details">
-        <div class="mh-inner">
-          <div class="mh-face mh-front"><img src="photos/main-coffee-bar.jpg" alt="Coffee and wine bar with copper counter, wine rack, and beverage fridge" loading="lazy"></div>
-          <div class="mh-face mh-back"><span class="mh-num">05</span><h3>Coffee &amp; Wine Bar</h3><p>Copper counter, built-in wine rack, beverage fridge, under-cabinet lighting.</p></div>
-        </div>
-      </div>
-      <div class="mh-card reveal" tabindex="0" role="button" aria-pressed="false" aria-label="A Bedroom Retreat details">
-        <div class="mh-inner">
-          <div class="mh-face mh-front"><img src="photos/main-bedroom.jpg" alt="Bedroom with painted accent alcove and wood floors" loading="lazy"></div>
-          <div class="mh-face mh-back"><span class="mh-num">06</span><h3>A Bedroom Retreat</h3><p>Framed accent alcove and warm wood floors.</p></div>
-        </div>
-      </div>
-      <div class="mh-card reveal" tabindex="0" role="button" aria-pressed="false" aria-label="The Copper Bath details">
-        <div class="mh-inner">
-          <div class="mh-face mh-front"><img src="photos/main-copper-tub.jpg" alt="Hammered-copper soaking tub with chevron tile and arched mirror window" loading="lazy"></div>
-          <div class="mh-face mh-back"><span class="mh-num">07</span><h3>The Copper Bath</h3><p>A genuine hammered-copper soaking tub against black chevron tile, lit by chandelier.</p></div>
-        </div>
-      </div>
-      <div class="mh-card reveal" tabindex="0" role="button" aria-pressed="false" aria-label="The Walk-In Shower details">
-        <div class="mh-inner">
-          <div class="mh-face mh-front"><img src="photos/main-shower.jpg" alt="Walk-in shower with black-grid glass doors and stone mosaic floor" loading="lazy"></div>
-          <div class="mh-face mh-back"><span class="mh-num">08</span><h3>The Walk-In Shower</h3><p>Black-grid glass, stone-slab walls, and a mosaic pebble floor.</p></div>
-        </div>
-      </div>
-      <div class="mh-card reveal" tabindex="0" role="button" aria-pressed="false" aria-label="The Guest Bath details">
-        <div class="mh-inner">
-          <div class="mh-face mh-front"><img src="photos/main-guest-bath.jpg" alt="Guest bath with freestanding soaking tub and bamboo-tile accent wall" loading="lazy"></div>
-          <div class="mh-face mh-back"><span class="mh-num">09</span><h3>The Guest Bath</h3><p>Freestanding soaking tub beside a wood-mosaic accent wall.</p></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="apt">
-  <div class="wrap">
-    <span class="kicker">Multi-Use &middot; Multi-Gen</span>
-    <h2>A loft apartment above the garage.</h2>
-    <p class="lede">Above the oversized garage: a 730 sq ft studio apartment with vaulted beamed ceilings, a sleeping loft, kitchenette, designer walk-in shower, and its own laundry. A private 726 sq ft balcony &mdash; nearly doubling the footprint &mdash; plus a covered carport entrance and separate meter make it truly independent &mdash; in-law suite, guest retreat, executive office, or income producer.</p>
-    <div class="apt-grid">
-      <a href="photos/apt-kitchen.jpg" class="reveal"><img src="photos/apt-kitchen.jpg" alt="Apartment kitchen with vaulted beamed ceiling and pendant lighting" loading="lazy"></a>
-      <a href="photos/apt-loft.jpg" class="reveal"><img src="photos/apt-loft.jpg" alt="Sleeping loft above the apartment living area" loading="lazy"></a>
-      <a href="photos/apt-bath.jpg" class="reveal"><img src="photos/apt-bath.jpg" alt="Designer walk-in shower with pebble floor and marble trim" loading="lazy"></a>
-      <a href="photos/apt-lounge.jpg" class="reveal"><img src="photos/apt-lounge.jpg" alt="Apartment lounge with stacked-stone accent wall" loading="lazy"></a>
-    </div>
-  </div>
-</section>
-
-<section class="gallery">
-  <div class="wrap">
-    <span class="kicker">First Look</span>
-    <h2>A preview of the property.</h2>
-    <div class="gal-grid">
-      <a href="photos/house-front.jpg" class="reveal"><img src="photos/house-front.jpg" alt="Front of the home with board-fenced yard and circular gravel drive" loading="lazy"></a>
-      <a href="photos/pool-dusk.jpg" class="reveal"><img src="photos/pool-dusk.jpg" alt="Beach-entry saltwater pool at dusk with landscape lighting" loading="lazy"></a>
-      <a href="photos/spa-bath.jpg" class="tall reveal"><img src="photos/spa-bath.jpg" alt="Spa bathroom with soaking tub and private outdoor shower" loading="lazy"></a>
-      <a href="photos/pool-day.jpg" class="reveal"><img src="photos/pool-day.jpg" alt="Infinity-edge pool overlooking the pasture" loading="lazy"></a>
-      <a href="photos/horses-pond.jpg" class="reveal"><img src="photos/horses-pond.jpg" alt="Horses grazing beside a stocked pond and fishing bridge" loading="lazy"></a>
-      <a href="photos/barn-stalls.jpg" class="reveal tall"><img src="photos/barn-stalls.jpg" alt="New five-stall barn aisle with timber stalls and steel trusses" loading="lazy"></a>
-      <a href="photos/pond-gazebo.jpg" class="reveal"><img src="photos/pond-gazebo.jpg" alt="Lily pond with fishing bridge and covered gazebo" loading="lazy"></a>
-      <a href="photos/spa-waterfall.jpg" class="reveal"><img src="photos/spa-waterfall.jpg" alt="Pebble waterfall spillway from pool into spa" loading="lazy"></a>
-      <a href="photos/double-rainbow.jpg" class="tall reveal"><img src="photos/double-rainbow.jpg" alt="Double rainbow over the fenced drive" loading="lazy"></a>
-      <a href="photos/front-entry.jpg" class="reveal"><img src="photos/front-entry.jpg" alt="Timber-framed front entry" loading="lazy"></a>
-      <a href="photos/oak-swing.jpg" class="reveal"><img src="photos/oak-swing.jpg" alt="Live oak with Spanish moss and tree swing at golden hour" loading="lazy"></a>
-      <a href="photos/house-front-lawn.jpg" class="reveal"><img src="photos/house-front-lawn.jpg" alt="Craftsman ranch home behind board fencing and mature oaks" loading="lazy"></a>
-      <a href="photos/pond-mist.jpg" class="reveal"><img src="photos/pond-mist.jpg" alt="Sunrise mist over the pond behind board fencing" loading="lazy"></a>
-      <a href="photos/porch-swing.jpg" class="reveal tall"><img src="photos/porch-swing.jpg" alt="Wooden porch swing overlooking the lily pond and gazebo at sunset" loading="lazy"></a>
-      <a href="photos/pool-sunset.jpg" class="reveal"><img src="photos/pool-sunset.jpg" alt="Sunset reflected in the pool" loading="lazy"></a>
-    </div>
-  </div>
-</section>
-
-<section class="corners" id="every-corner">
-  <div class="wrap">
-    <div class="reveal">
-      <span class="kicker">Every Corner</span>
-      <h2>The rooms and spaces the headlines skip.</h2>
-      <p class="lede">The dining room, the office, the lanai, the porches, the guest baths, the laundry, the chicken condo, the RV pad &mdash; the everyday spaces, finished to the same standard as the showpieces.</p>
-    </div>
-    <div class="corner-grid">
-      <a href="photos/main-house-front.jpg" class="reveal"><img src="photos/main-house-front.jpg" alt="Front of the main house beneath a bright Florida sky" loading="lazy"><span>Main house, front lawn</span></a>
-      <a href="photos/dining-room.jpg" class="reveal"><img src="photos/dining-room.jpg" alt="Dining room with arched windows and hardwood floors" loading="lazy"><span>Dining room</span></a>
-      <a href="photos/great-room-foyer.jpg" class="reveal"><img src="photos/great-room-foyer.jpg" alt="Great room looking toward the front entry and foyer chandelier" loading="lazy"><span>Great room to the foyer</span></a>
-      <a href="photos/kitchen-range.jpg" class="reveal"><img src="photos/kitchen-range.jpg" alt="Kitchen range wall with gas range and dishwasher" loading="lazy"><span>Kitchen, range side</span></a>
-      <a href="photos/transition-hall.jpg" class="reveal"><img src="photos/transition-hall.jpg" alt="Paneled hall leading to the kitchen" loading="lazy"><span>Hall to the kitchen</span></a>
-      <a href="photos/main-office.jpg" class="reveal"><img src="photos/main-office.jpg" alt="Home office with sliding barn door and pasture views" loading="lazy"><span>Office with barn door</span></a>
-      <a href="photos/lanai-seating.jpg" class="reveal"><img src="photos/lanai-seating.jpg" alt="Screened lanai seating area with French doors to the house" loading="lazy"><span>Screened lanai</span></a>
-      <a href="photos/lanai-tv.jpg" class="reveal"><img src="photos/lanai-tv.jpg" alt="Covered lanai lounge with television wall and bar" loading="lazy"><span>Lanai lounge &amp; bar</span></a>
-      <a href="photos/porch-wrap.jpg" class="reveal"><img src="photos/porch-wrap.jpg" alt="Wrap-around paver porch with stone columns" loading="lazy"><span>Wrap-around porch</span></a>
-      <a href="photos/porch-hammock.jpg" class="reveal"><img src="photos/porch-hammock.jpg" alt="Hammock strung between porch columns overlooking the pasture" loading="lazy"><span>Hammock on the porch</span></a>
-      <a href="photos/outdoor-shower.jpg" class="reveal"><img src="photos/outdoor-shower.jpg" alt="Private outdoor shower enclosure with wood slat screen" loading="lazy"><span>Private outdoor shower</span></a>
-      <a href="photos/bedroom-2.jpg" class="reveal"><img src="photos/bedroom-2.jpg" alt="Second primary bedroom with sage accent alcove" loading="lazy"><span>Second primary bedroom</span></a>
-      <a href="photos/bedroom-2-bath.jpg" class="reveal"><img src="photos/bedroom-2-bath.jpg" alt="Second primary bath with stone-tile walk-in shower" loading="lazy"><span>Second primary bath</span></a>
-      <a href="photos/bedroom-3.jpg" class="reveal"><img src="photos/bedroom-3.jpg" alt="Guest bedroom with sliding doors to the porch" loading="lazy"><span>Guest bedroom</span></a>
-      <a href="photos/hall-bath.jpg" class="reveal"><img src="photos/hall-bath.jpg" alt="Guest bath with freestanding tub and wood-mosaic wall" loading="lazy"><span>Guest bath</span></a>
-      <a href="photos/master-bath-tile.jpg" class="reveal"><img src="photos/master-bath-tile.jpg" alt="Hand-painted sun-and-moon tile detail in the primary bath" loading="lazy"><span>Primary bath detail</span></a>
-      <a href="photos/main-laundry.jpg" class="reveal"><img src="photos/main-laundry.jpg" alt="Laundry room with washer, dryer, utility sink and hanging rail" loading="lazy"><span>Laundry room</span></a>
-      <a href="photos/chicken-coop.jpg" class="reveal"><img src="photos/chicken-coop.jpg" alt="Custom raised chicken condo in the side pasture" loading="lazy"><span>Chicken condo</span></a>
-      <a href="photos/rv-pad.jpg" class="reveal"><img src="photos/rv-pad.jpg" alt="20x50 concrete RV pad with 30/50-amp service" loading="lazy"><span>RV pad, 30/50-amp</span></a>
-      <a href="photos/sunset-pasture.jpg" class="reveal"><img src="photos/sunset-pasture.jpg" alt="Sunset over the board-fenced pasture and pond" loading="lazy"><span>Sunset over the pasture</span></a>
     </div>
   </div>
 </section>
@@ -758,9 +670,10 @@ footer b{color:var(--brass-soft);letter-spacing:.18em;text-transform:uppercase}
 
 <div class="tp" id="tp" role="dialog" aria-modal="true" aria-label="Photo tour" hidden>
   <div class="tp-stage"><div class="tp-slide"><div class="bg"></div><img alt=""></div><div class="tp-slide"><div class="bg"></div><img alt=""></div></div>
-  <div class="tp-top"><div class="tp-title" id="tp-title"></div><button class="tp-btn" id="tp-close" type="button" aria-label="Close tour">&#10005;</button></div>
+  <div class="tp-top"><div class="tp-title" id="tp-title"></div><div class="tp-tr"><button class="tp-btn" id="tp-snd" type="button" aria-label="Mute music">&#9835;</button><button class="tp-exit" id="tp-close" type="button"><b>&#10005;</b> Exit Tour</button></div></div>
   <div class="tp-bot"><div class="tp-cap" id="tp-cap"></div><div class="tp-ctrl"><button class="tp-btn" id="tp-prev" type="button" aria-label="Previous photo">&#8249;</button><button class="tp-btn" id="tp-pause" type="button" aria-label="Pause">&#10074;&#10074;</button><button class="tp-btn" id="tp-next" type="button" aria-label="Next photo">&#8250;</button><div class="tp-prog"><i id="tp-bar"></i></div><div class="tp-count" id="tp-count"></div></div></div>
-  <div class="tp-end" id="tp-end"><h3>Like what you see?</h3><div><a class="btn solid" href="#notify" id="tp-book">Schedule Viewing NOW</a><button class="btn" type="button" id="tp-again">Watch again</button></div></div>
+  <div class="tp-end" id="tp-end"><h3>Like what you see?</h3><div><a class="btn solid" href="#notify" id="tp-book">Schedule Viewing NOW</a><button class="btn light" type="button" id="tp-again">Watch again</button><button class="btn dark" type="button" id="tp-back">Back to the website</button></div></div>
+  <audio id="tp-music" src="tour-music.mp3" loop preload="none"></audio>
 </div>
 
 <footer>
@@ -791,7 +704,7 @@ document.getElementById('lf-brochure').addEventListener('click',()=>{if(typeof g
 document.getElementById('lf-info').addEventListener('click',()=>{if(typeof gtag==='function')gtag('event','file_download',{event_category:'brochure',event_label:'gated_pdf',file_name:'property-information.pdf'});if(typeof fbq==='function')fbq('trackCustom','InfoSheetDownload');});
 const io = new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.15});
 document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
-(()=>{const T={outside:{t:'Quick<span>Property Glance</span>',p:[['house-front-lawn','Main house from the front lawn'],['house-front','Circular drive and board-fenced front yard'],['front-entry','Timber-framed front entry'],['porch-wrap','Wrap-around porch'],['porch-hammock','Hammock on the porch'],['lanai-seating','Screened lanai'],['lanai-tv','Lanai lounge &amp; bar'],['outdoor-shower','Private outdoor shower'],['pool-day','Beach-entry saltwater pool'],['spa-waterfall','Waterfall into the spa'],['pool-dusk','The pool at dusk'],['spa-bath','Spa bath off the pool'],['barn-stalls','Five-stall barn'],['barn-patio','Barn Suite screened porch'],['horses-pond','Pastures &amp; ponds'],['pond-gazebo','Gazebo &amp; fishing bridge'],['porch-swing','Evening on the pond'],['chicken-coop','Chicken condo'],['rv-pad','20&times;50 RV pad'],['oak-swing','Live oak &amp; tree swing'],['pond-mist','Sunrise over the pasture'],['double-rainbow','Double rainbow over the drive'],['pool-sunset','Sunset over the pool']]},inside:{t:'Come on<span>Inside</span>',p:[['main-foyer','The foyer'],['great-room-foyer','Great room'],['great-room','Great room &amp; fireplace'],['main-fireplace','Fireplace wall'],['dining-room','Dining room'],['main-kitchen','Chef&rsquo;s kitchen'],['kitchen-range','Kitchen, range side'],['main-coffee-bar','Coffee &amp; wine bar'],['transition-hall','Hall to the kitchen'],['main-office','Office'],['primary-suite','Primary suite'],['primary-suite-sitting','Primary suite sitting area'],['main-copper-tub','Hammered-copper soaking tub'],['master-bath-tile','Primary bath detail'],['main-bedroom','Second primary suite'],['main-shower','Second primary ensuite'],['bedroom-3','Guest bedroom'],['main-guest-bath','Guest bath'],['main-laundry','Laundry room']]}};const D=6500,F=1400,K=['kb-in','kb-right','kb-out','kb-left'];const tp=document.getElementById('tp'),sl=tp.querySelectorAll('.tp-slide'),cap=document.getElementById('tp-cap'),cnt=document.getElementById('tp-count'),bar=document.getElementById('tp-bar'),pz=document.getElementById('tp-pause'),end=document.getElementById('tp-end');let cur=null,key='',i=0,a=0,tm=null,paused=false,t0=0,raf=0,last=null;const src=n=>'photos/'+n+'.jpg';const pre=n=>{const im=new Image();im.src=src(n)};const tick=()=>{if(!paused){const p=Math.min(1,(performance.now()-t0)/D);bar.style.width=((i+p)/cur.p.length*100)+'%'}raf=requestAnimationFrame(tick)};const show=(n)=>{i=n;const s=sl[a];a^=1;const [f,c]=cur.p[i];const o=sl[a];o.className='tp-slide';void o.offsetWidth;o.querySelector('img').src=src(f);o.querySelector('img').alt=c.replace(/&[a-z]+;/g,' ');o.querySelector('.bg').style.backgroundImage="url('"+src(f)+"')";o.style.setProperty('--kb',(D+F)/1000+'s');o.classList.add('on',K[i%4]);s.classList.remove('on');cap.innerHTML=c;cnt.textContent=(i+1)+' / '+cur.p.length;if(cur.p[i+1])pre(cur.p[i+1][0]);t0=performance.now();clearTimeout(tm);if(!paused)tm=setTimeout(nxt,D)};const nxt=()=>{if(i+1<cur.p.length)show(i+1);else{clearTimeout(tm);end.classList.add('show');if(typeof gtag==='function')gtag('event','tour_complete',{event_category:'photo_tour',event_label:key})}};const prv=()=>{if(i>0)show(i-1)};const setP=v=>{paused=v;pz.innerHTML=v?'&#9654;':'&#10074;&#10074;';pz.setAttribute('aria-label',v?'Play':'Pause');tp.querySelectorAll('.tp-slide img').forEach(im=>im.style.animationPlayState=v?'paused':'running');clearTimeout(tm);if(!v){t0=performance.now();tm=setTimeout(nxt,D)}};const open=k=>{key=k;cur=T[k];last=document.activeElement;document.getElementById('tp-title').innerHTML=cur.t;end.classList.remove('show');paused=false;pz.innerHTML='&#10074;&#10074;';tp.hidden=false;tp.classList.add('open');document.body.style.overflow='hidden';sl.forEach(x=>x.className='tp-slide');show(0);cancelAnimationFrame(raf);tick();document.getElementById('tp-close').focus();if(typeof gtag==='function')gtag('event','tour_open',{event_category:'photo_tour',event_label:k});if(typeof fbq==='function')fbq('trackCustom','TourOpen',{tour:k})};const close=()=>{clearTimeout(tm);cancelAnimationFrame(raf);tp.classList.remove('open');tp.hidden=true;document.body.style.overflow='';if(last)last.focus()};document.querySelectorAll('.tour-card').forEach(b=>b.addEventListener('click',()=>open(b.dataset.tour)));document.getElementById('tp-close').addEventListener('click',close);document.getElementById('tp-next').addEventListener('click',()=>{end.classList.remove('show');nxt()});document.getElementById('tp-prev').addEventListener('click',()=>{end.classList.remove('show');prv()});pz.addEventListener('click',()=>setP(!paused));document.getElementById('tp-again').addEventListener('click',()=>{end.classList.remove('show');setP(false);show(0)});document.getElementById('tp-book').addEventListener('click',close);tp.addEventListener('keydown',e=>{if(e.key==='Escape')close();else if(e.key==='ArrowRight')nxt();else if(e.key==='ArrowLeft')prv();else if(e.key===' '&&e.target.tagName!=='BUTTON'){e.preventDefault();setP(!paused)}});let x0=null;tp.addEventListener('touchstart',e=>{x0=e.touches[0].clientX},{passive:true});tp.addEventListener('touchend',e=>{if(x0===null)return;const dx=e.changedTouches[0].clientX-x0;if(Math.abs(dx)>40){dx<0?nxt():prv()}x0=null})})();
+(()=>{const T={outside:{t:'Quick<span>Property Glance</span>',p:[['exterior-front-1','The main house'],['exterior-front-2','Circular drive &amp; front yard'],['nature-06','Live oak at sunset'],['nature-08','Along the pond'],['nature-02','Lily pond &amp; gazebo'],['nature-01','Horses at the pond'],['nature-04','Board-fenced pasture'],['nature-03','Oaks &amp; open pasture'],['nature-09','In the garden'],['back-porch-1','Covered back patio'],['back-porch-2','Wrap-around paver patio'],['back-porch-3','Patio view to the pasture'],['back-porch-4','Hammock on the patio'],['nature-11','Poolside plantings'],['pool-1','Beach-entry saltwater pool'],['pool-2','Waterfall into the spa'],['pool-4','The pool at sunset'],['pool-5','Evening over the pool'],['barn-suite-1','Barn Suite screened porch'],['barn-5-stall','Five-stall barn'],['rv-pad','20&times;50 RV pad'],['chicken-condo','Chicken condo']],tour:1},inside:{t:'Come on<span>Inside</span>',p:[['foyer','The foyer'],['dining','Dining room'],['living-1','Great room'],['living-2','Great room &amp; fireplace'],['living-3','Fireplace wall'],['living-5','Great room to the kitchen'],['kitchen-2','Chef&rsquo;s kitchen'],['kitchen-3','Copper-topped breakfast bar'],['kitchen-4','Kitchen, range side'],['beverage-bar','Coffee &amp; wine bar'],['primary-1','First primary suite'],['primary-2','Primary suite sitting area'],['primary-3','Primary walk-in shower'],['primary-5','Hammered-copper soaking tub'],['primary-6','Primary bath detail'],['second-primary-1','Second primary suite'],['second-primary-2','Second primary ensuite'],['guest-bedroom','Guest bedroom'],['guest-bath','Guest bath'],['outdoor-shower-1','Private outdoor shower'],['outdoor-shower-2','Private outdoor shower'],['hall','Hall to the kitchen'],['office-1','Office'],['office-2','Office'],['laundry-2','Laundry room'],['laundry-1','Laundry room'],['laundry-3','Laundry room'],['lanai-1','Screened lanai'],['lanai-2','Screened lanai'],['lanai-3','Screened lanai'],['apt-7','Loft apartment'],['apt-3','Loft apartment living area'],['apt-8','Sleeping loft'],['apt-9','Apartment bath']],tour:1},mh:{t:'Main<span>House</span>',p:[['foyer','The foyer'],['dining','Dining room'],['living-2','Great room &amp; fireplace'],['living-5','Great room to the kitchen'],['kitchen-1','Kitchen'],['kitchen-2','Chef&rsquo;s kitchen'],['kitchen-3','Copper-topped breakfast bar'],['kitchen-4','Kitchen, range side'],['beverage-bar','Coffee &amp; wine bar'],['primary-1','First primary suite'],['primary-3','Primary walk-in shower'],['primary-5','Hammered-copper soaking tub'],['primary-6','Primary bath detail'],['second-primary-1','Second primary suite'],['second-primary-2','Second primary ensuite'],['hall','Hall to the kitchen'],['office-2','Office'],['laundry-2','Laundry room'],['lanai-1','Screened lanai'],['lanai-2','Screened lanai'],['lanai-3','Screened lanai'],['apt-7','Loft apartment'],['apt-8','Sleeping loft'],['apt-9','Apartment bath']]},eq:{t:'Equestrian<span>Excellence</span>',p:[['nature-01','Horses at the pond'],['nature-02','Lily pond &amp; gazebo'],['nature-06','Live oak at sunset'],['nature-05','Sunset through the fence line'],['nature-10','Sunset over the pasture'],['nature-03','Oaks &amp; open pasture'],['barn-5-stall','Five-stall barn'],['barn-2','Barn &amp; covered trailer parking'],['barn-suite-1','Barn Suite screened porch'],['barn-suite-2','Barn Suite living &amp; loft'],['barn-suite-3','Barn Suite bedroom'],['barn-suite-4','Barn Suite kitchen'],['barn-suite-5','Barn Suite bath'],['barn-suite-6','Barn Suite laundry']]},perks:{t:'Lifestyle<span>Perks</span>',p:[['nature-13','Stocked pond &amp; gazebo'],['nature-06','Live oak at sunset'],['pool-5','Evening over the pool'],['rv-pad','20&times;50 RV slab'],['chicken-condo','Custom chicken condo']]}};const D=6500,F=1400,K=['kb-in','kb-right','kb-out','kb-left'];const tp=document.getElementById('tp'),sl=tp.querySelectorAll('.tp-slide'),cap=document.getElementById('tp-cap'),cnt=document.getElementById('tp-count'),bar=document.getElementById('tp-bar'),pz=document.getElementById('tp-pause'),end=document.getElementById('tp-end'),au=document.getElementById('tp-music'),snd=document.getElementById('tp-snd');let cur=null,key='',i=0,a=0,tm=null,paused=false,t0=0,raf=0,last=null,muted=false,fadeT=0;const src=n=>'photos/set2/'+n+'.jpg';const pre=n=>{const im=new Image();im.src=src(n)};const fade=(to,ms,cb)=>{clearInterval(fadeT);const st=au.volume,steps=Math.max(1,Math.round(ms/50));let k=0;fadeT=setInterval(()=>{k++;au.volume=Math.max(0,Math.min(1,st+(to-st)*k/steps));if(k>=steps){clearInterval(fadeT);cb&&cb()}},50)};const musicOn=()=>{if(!cur||!cur.tour||muted)return;au.volume=0;const p=au.play();if(p&&p.catch)p.catch(()=>{});fade(.55,1500)};const musicOff=(stop)=>{fade(0,700,()=>{au.pause();if(stop)au.currentTime=0})};const tick=()=>{if(!paused){const p=Math.min(1,(performance.now()-t0)/D);bar.style.width=((i+p)/cur.p.length*100)+'%'}raf=requestAnimationFrame(tick)};const show=(n)=>{i=n;const s=sl[a];a^=1;const [f,c]=cur.p[i];const o=sl[a];o.className='tp-slide';void o.offsetWidth;o.querySelector('img').src=src(f);o.querySelector('img').alt=c.replace(/&[a-z#0-9]+;/g,' ');o.querySelector('.bg').style.backgroundImage="url('"+src(f)+"')";o.style.setProperty('--kb',(D+F)/1000+'s');o.classList.add('on',K[i%4]);if(paused)o.querySelector('img').style.animationPlayState='paused';s.classList.remove('on');cap.innerHTML=c;cnt.textContent=(i+1)+' / '+cur.p.length;if(cur.p[i+1])pre(cur.p[i+1][0]);t0=performance.now();clearTimeout(tm);if(!paused)tm=setTimeout(nxt,D)};const nxt=()=>{if(i+1<cur.p.length)show(i+1);else if(!cur.tour){show(0)}else{clearTimeout(tm);end.classList.add('show');if(typeof gtag==='function')gtag('event','tour_complete',{event_category:'photo_tour',event_label:key})}};const prv=()=>{if(i>0)show(i-1);else if(!cur.tour)show(cur.p.length-1)};const setP=v=>{paused=v;pz.innerHTML=v?'&#9654;':'&#10074;&#10074;';pz.setAttribute('aria-label',v?'Play':'Pause');tp.querySelectorAll('.tp-slide img').forEach(im=>im.style.animationPlayState=v?'paused':'running');clearTimeout(tm);if(cur&&cur.tour){v?musicOff(false):musicOn()}if(!v){t0=performance.now();tm=setTimeout(nxt,D)}};const open=(k,start,auto)=>{key=k;cur=T[k];last=document.activeElement;document.getElementById('tp-title').innerHTML=cur.t;end.classList.remove('show');paused=!auto;pz.innerHTML=paused?'&#9654;':'&#10074;&#10074;';snd.style.display=cur.tour?'':'none';document.getElementById('tp-close').lastChild.textContent=cur.tour?' Exit Tour':' Close';tp.hidden=false;tp.classList.add('open');document.body.style.overflow='hidden';sl.forEach(x=>x.className='tp-slide');show(start||0);cancelAnimationFrame(raf);tick();document.getElementById('tp-close').focus();if(cur.tour){au.currentTime=0;musicOn();if(typeof gtag==='function')gtag('event','tour_open',{event_category:'photo_tour',event_label:k});if(typeof fbq==='function')fbq('trackCustom','TourOpen',{tour:k})}else if(typeof gtag==='function')gtag('event','photo_view',{event_category:'full_picture',event_label:k})};const close=()=>{clearTimeout(tm);cancelAnimationFrame(raf);if(cur&&cur.tour)musicOff(true);tp.classList.remove('open');tp.hidden=true;document.body.style.overflow='';if(last)last.focus()};document.querySelectorAll('.tour-card').forEach(b=>b.addEventListener('click',()=>open(b.dataset.tour,0,true)));document.querySelectorAll('.fp-photos a[data-set]').forEach(el=>el.addEventListener('click',e=>{e.preventDefault();open(el.dataset.set,+el.dataset.i,false)}));document.querySelectorAll('.fp-doc').forEach(el=>el.addEventListener('click',()=>{if(typeof gtag==='function')gtag('event','file_download',{event_category:'lifestyle_sheet',file_name:el.dataset.doc})}));document.getElementById('tp-close').addEventListener('click',close);document.getElementById('tp-back').addEventListener('click',close);snd.addEventListener('click',()=>{muted=!muted;snd.innerHTML=muted?'&#128263;':'&#9835;';snd.setAttribute('aria-label',muted?'Play music':'Mute music');if(muted)musicOff(false);else if(!paused)musicOn()});document.getElementById('tp-next').addEventListener('click',()=>{end.classList.remove('show');nxt()});document.getElementById('tp-prev').addEventListener('click',()=>{end.classList.remove('show');prv()});pz.addEventListener('click',()=>setP(!paused));document.getElementById('tp-again').addEventListener('click',()=>{end.classList.remove('show');au.currentTime=0;setP(false);show(0)});document.getElementById('tp-book').addEventListener('click',close);tp.addEventListener('keydown',e=>{if(e.key==='Escape')close();else if(e.key==='ArrowRight')nxt();else if(e.key==='ArrowLeft')prv();else if(e.key===' '&&e.target.tagName!=='BUTTON'){e.preventDefault();setP(!paused)}});let x0=null;tp.addEventListener('touchstart',e=>{x0=e.touches[0].clientX},{passive:true});tp.addEventListener('touchend',e=>{if(x0===null)return;const dx=e.changedTouches[0].clientX-x0;if(Math.abs(dx)>40){dx<0?nxt():prv()}x0=null})})();
 document.querySelectorAll('.hl-card').forEach(c=>{const t=()=>{const on=c.classList.toggle('flipped');c.setAttribute('aria-pressed',on);if(on&&typeof gtag==='function')gtag('event','card_flip',{event_category:'highlights',event_label:c.getAttribute('aria-label')})};c.addEventListener('click',t);c.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();t()}})});
 (()=>{const el=document.getElementById('estate-map');if(!el)return;const go=()=>{if(!window.L){return setTimeout(go,150)}const H=[27.41743,-82.30476];const P=[{k:1,n:'Hunsader Farms',t:'2 mi · 5 min',c:[27.44519,-82.30464],d:'left'},{k:2,n:'Rosa Fiorelli Winery',t:'3 mi · 6 min',c:[27.46266,-82.30459],d:'right'},{k:3,n:'Mall at University Town Center',t:'17 mi · 30 min',c:[27.38451,-82.45284],d:'bottom'},{k:4,n:'TerraNova Equestrian Center',t:'13 mi · 18 min',c:[27.29083,-82.21617],d:'left'}];const sm=window.innerWidth<600;const m=L.map(el,{zoomSnap:.25,zoomDelta:.5,scrollWheelZoom:false,zoomControl:false,attributionControl:true,tap:false,dragging:!L.Browser.mobile});L.control.zoom({position:'topright'}).addTo(m);L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:17,attribution:'&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a>'}).addTo(m);m.attributionControl.setPrefix(false);const home=L.marker(H,{icon:L.divIcon({className:'em-pin',html:'<div class="em-home"><svg viewBox="0 0 24 24"><path d="M3 11 12 4l9 7"/><path d="M5 10v10h14V10"/><path d="M10 20v-5h4v5"/></svg></div>',iconSize:[36,36],iconAnchor:[18,18]}),zIndexOffset:-100,keyboard:false}).addTo(m);home.bindTooltip('<b>6808 County Road 675</b>8.5+ gated acres',{permanent:true,direction:sm?'left':'right',offset:sm?[-20,0]:[22,0],className:'em-tip home'});const mk={};P.forEach(p=>{L.polyline([H,p.c],{color:'#c9a227',weight:2,opacity:.85,dashArray:'2 7',lineCap:'round',interactive:false}).addTo(m);const o={top:[0,-18],right:[20,-4],bottom:[0,18],left:[-20,-4]}[p.d];mk[p.k]=L.marker(p.c,{icon:L.divIcon({className:'em-pin',html:'<div class="em-dot">'+p.k+'</div>',iconSize:[30,30],iconAnchor:[15,15]}),title:p.n}).addTo(m).bindTooltip('<b>'+p.n+'</b><span>'+p.t+'</span>',{direction:p.d,offset:o,className:'em-tip'})});const all=L.latLngBounds([H].concat(P.map(p=>p.c)));const fit=()=>{m.invalidateSize();const w=window.innerWidth<600;m.fitBounds(all,{paddingTopLeft:w?[26,30]:[50,40],paddingBottomRight:w?[34,40]:[70,64]})};fit();window.addEventListener('resize',()=>{clearTimeout(window.__emr);window.__emr=setTimeout(()=>{m.invalidateSize();fit()},200)});document.querySelectorAll('.loc li.poi,.em-legend li').forEach(li=>li.addEventListener('click',()=>{const t=mk[li.dataset.poi];if(!t)return;m.flyToBounds(L.latLngBounds([H,t.getLatLng()]),{padding:[90,90],duration:.9});setTimeout(()=>t.openTooltip(),950);el.scrollIntoView({behavior:'smooth',block:'center'});if(typeof gtag==='function')gtag('event','map_poi',{event_category:'location',event_label:li.dataset.poi})}))};if(document.readyState==='complete')go();else window.addEventListener('load',go)})();
 const mhSeen=new Set();const mhFire=c=>{const l=c.querySelector('.mh-num').textContent+' '+c.querySelector('h3').textContent;if(mhSeen.has(l))return;mhSeen.add(l);if(typeof gtag==='function')gtag('event','card_flip',{event_category:'main_residence',event_label:l})};document.querySelectorAll('.mh-card').forEach(c=>{const t=()=>{const on=c.classList.toggle('flipped');c.setAttribute('aria-pressed',on);if(on)mhFire(c)};c.addEventListener('click',t);c.addEventListener('mouseenter',()=>mhFire(c),{once:true});c.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();t()}})});
