@@ -715,7 +715,7 @@ footer b{color:var(--brass-soft);letter-spacing:.18em;text-transform:uppercase}
     <div class="form-shell">
       <form class="lead-form" id="lead-form" autocomplete="on">
         <label for="lf-name">Name</label>
-        <input type="hidden" name="ga_client_id" id="lf-cid"><input id="lf-name" name="name" type="text" required placeholder="Your name" autocomplete="name">
+        <input type="hidden" name="ga_client_id" id="lf-cid"><input type="hidden" name="source" id="lf-src"><input id="lf-name" name="name" type="text" required placeholder="Your name" autocomplete="name">
         <label for="lf-email">Email</label>
         <input id="lf-email" name="email" type="email" required placeholder="you@example.com" autocomplete="email">
         <label for="lf-phone">Phone <span style="opacity:.55;letter-spacing:.1em">&middot; optional</span></label>
@@ -760,16 +760,32 @@ footer b{color:var(--brass-soft);letter-spacing:.18em;text-transform:uppercase}
 </footer>
 
 <script>
+function leadSource(){
+  let v=''; try{v=sessionStorage.getItem('lead_src')||''}catch(e){}
+  if(!v){
+    const q=new URLSearchParams(location.search), r=document.referrer?new URL(document.referrer).hostname.replace(/^www\./,''):'';
+    if(q.get('utm_source')) v=[q.get('utm_source'),q.get('utm_medium'),q.get('utm_campaign')].filter(Boolean).join(' / ');
+    else if(q.get('gclid')||q.get('gbraid')||q.get('wbraid')) v='google / cpc';
+    else if(q.get('ttclid')) v='tiktok / paid';
+    else if(q.get('fbclid')) v=(r||'facebook')+' / social';
+    else if(r && r!==location.hostname.replace(/^www\./,'')) v=r+' / referral';
+    else v='direct';
+    try{sessionStorage.setItem('lead_src',v)}catch(e){}
+  }
+  return v;
+}
+leadSource();
 document.getElementById('lead-form').addEventListener('submit', async e => {
   e.preventDefault();
   const f = e.target, btn = document.getElementById('lf-btn');
   if (window.gaCid) document.getElementById('lf-cid').value = window.gaCid;
+  const src = leadSource(); document.getElementById('lf-src').value = src;
   btn.disabled = true; btn.textContent = 'Sending…';
   try {
     await fetch('https://script.google.com/macros/s/AKfycby9RaqCAm--RnDxvfnWW_3J3yt3PDIBrzG8rop9Z0yxrBfcq2ZsTN0DXTBh0rt76hMtsw/exec', {
       method: 'POST', mode: 'no-cors',
       headers: {'Content-Type': 'application/x-www-form-urlencoded'},
-      body: new URLSearchParams(new FormData(f))
+      body: (() => { const d = new URLSearchParams(new FormData(f)); const k = ['message','notes','comments'].find(n => d.has(n)); if (k) d.set(k, (d.get(k) ? d.get(k) + ' ' : '') + '[Source: ' + src + ']'); return d; })()
     });
   } catch (err) {}
   f.closest('.form-shell').classList.add('sent');
