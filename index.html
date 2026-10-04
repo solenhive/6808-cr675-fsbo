@@ -323,7 +323,9 @@ h2{font-family:var(--serif);font-weight:400;font-size:clamp(1.9rem,3.6vw,2.9rem)
 
 /* notify */
 .notify{background:var(--pine);color:var(--cream);text-align:center}
-.notify .lede{margin:0 auto 2.2rem}
+.notify .lede{margin:0 auto 1.1rem}
+.notify .call-line{margin:0 auto 2.2rem;font-size:1rem;letter-spacing:.04em}
+.notify .call-line a{color:var(--brass);font-family:var(--serif);font-size:1.3rem;text-decoration:none;border-bottom:1px solid rgba(201,162,39,.5);white-space:nowrap}
 .form-shell{max-width:560px;margin:0 auto;background:var(--cream);border:1px solid rgba(201,162,39,.45);padding:3rem clamp(1.5rem,5vw,3rem) 2.6rem;text-align:left;position:relative}
 .form-shell::before{content:"";position:absolute;inset:8px;border:1px solid rgba(201,162,39,.25);pointer-events:none}
 .lead-form label{display:block;font-size:.68rem;letter-spacing:.26em;text-transform:uppercase;font-weight:600;color:var(--brass);margin:1.6rem 0 .2rem}
@@ -712,6 +714,7 @@ footer b{color:var(--brass-soft);letter-spacing:.18em;text-transform:uppercase}
     <h2>This could be <em>yours</em>.</h2>
     <p class="price-note"><span>Now Available &middot; Offered at</span><b>$3,500,000</b></p>
     <p class="lede">Request a private showing and instantly download the property brochure and the full property information sheet &mdash; room dimensions, structures, systems, and parcel details. We&rsquo;ll reach out to set a time.</p>
+    <p class="call-line">Prefer to talk? Call or text <a href="tel:+19412246740" onclick="window.gtag&&gtag('event','click_to_call',{event_category:'contact',event_label:'form'});window.fbq&&fbq('track','Contact');window.ttq&&ttq.track('Contact')">941-224-6740</a></p>
     <div class="form-shell">
       <form class="lead-form" id="lead-form" autocomplete="on">
         <label for="lf-name">Name</label>
@@ -754,6 +757,7 @@ footer b{color:var(--brass-soft);letter-spacing:.18em;text-transform:uppercase}
 
 <footer>
   <b>6808 County Road 675 · Bradenton FL 34211 · Offered at $3,500,000</b><br>
+  Private showings: <a href="tel:+19412246740" style="color:var(--brass-soft);text-decoration:none" onclick="window.gtag&&gtag('event','click_to_call',{event_category:'contact',event_label:'footer'});window.fbq&&fbq('track','Contact');window.ttq&&ttq.track('Contact')">941-224-6740</a><br>
   Offered For Sale By Owner. All information deemed reliable but not guaranteed; buyer to verify all facts, figures, and measurements.<br>
   Equal Housing Opportunity.<br>
   Website built by <a href="https://www.solenhive.com" style="color:var(--brass-soft);text-decoration:none">Solenhive</a>
