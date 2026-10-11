@@ -315,7 +315,17 @@ h2{font-family:var(--serif);font-weight:400;font-size:clamp(1.9rem,3.6vw,2.9rem)
 
 /* plot map */
 .plot .wrap{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
-.plot img{border:1px solid rgba(34,32,27,.15)}
+.plot-map{position:relative;aspect-ratio:1/1;overflow:hidden;border:1px solid rgba(34,32,27,.18);background:#e9e4d6}
+.plot-map img{display:block;width:100%;height:100%;object-fit:cover;filter:grayscale(1) sepia(.32) hue-rotate(38deg) saturate(.75) contrast(.96) brightness(1.08)}
+.plot-map::after{content:"";position:absolute;inset:0;background:rgba(29,49,40,.10);mix-blend-mode:multiply;pointer-events:none;z-index:2}
+.plot-map::before{content:"";position:absolute;inset:0;box-shadow:inset 0 0 0 1px rgba(201,162,39,.35),inset 0 0 60px rgba(18,33,27,.18);pointer-events:none;z-index:3}
+.plot-map svg{position:absolute;inset:0;width:100%;height:100%;z-index:4;pointer-events:none}
+.plot-map .pm-line{fill:rgba(201,162,39,.10);stroke:var(--brass);stroke-width:.55;stroke-linejoin:round;vector-effect:non-scaling-stroke;stroke-width:2.5px}
+.plot-map .pm-tag{position:absolute;z-index:5;transform:translate(-50%,-50%);background:var(--pine);color:var(--cream);border:1px solid rgba(201,162,39,.6);box-shadow:0 4px 12px rgba(18,33,27,.25);padding:.3rem .55rem;font-family:var(--serif);font-weight:600;font-size:.82rem;line-height:1.2;white-space:nowrap}
+.plot-map .pm-tag.home{background:var(--brass);color:var(--pine-deep);border-color:var(--pine);font-size:.9rem}
+.plot-map .pm-tag.sm{font-family:var(--sans);font-weight:600;font-size:.66rem;letter-spacing:.08em;text-transform:uppercase;padding:.2rem .45rem}
+.plot-map .pm-acres{position:absolute;z-index:5;left:50%;top:84.4%;transform:translate(-50%,-50%);background:var(--cream);color:var(--pine);border:1px solid rgba(201,162,39,.6);padding:.15rem .6rem;font-family:var(--sans);font-size:.7rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;white-space:nowrap}
+@media(max-width:600px){.plot-map .pm-tag{font-size:.68rem;padding:.22rem .4rem}.plot-map .pm-tag.home{font-size:.74rem}.plot-map .pm-tag.sm{font-size:.56rem}.plot-map .pm-acres{font-size:.6rem}}
 .plot table{width:100%;border-collapse:collapse;margin-top:1.4rem;font-size:.95rem}
 .plot td{padding:.6rem 0;border-bottom:1px solid rgba(34,32,27,.12)}
 .plot td:last-child{text-align:right;font-weight:600}
@@ -683,7 +693,16 @@ body:has(.tp.open) .cbar{display:none!important}
 
 <section class="plot">
   <div class="wrap">
-    <img class="reveal" src="photos/plot-map.jpg" alt="Aerial parcel map of 6808 CR 675 with 8.55-acre boundary outlined" loading="lazy">
+    <div class="plot-map reveal">
+      <img src="photos/plot-aerial.jpg" alt="Aerial parcel map of 6808 CR 675 with the 8.55-acre boundary outlined and the residence, barn and three ponds marked" loading="lazy">
+      <svg viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><polygon class="pm-line" points="17.4,15.3 82.6,16.4 81.9,86.3 17.3,85.3"/></svg>
+      <span class="pm-tag home" style="left:50.3%;top:45%">Residence</span>
+      <span class="pm-tag" style="left:27.2%;top:35.5%">Barn</span>
+      <span class="pm-tag sm" style="left:28.4%;top:78%">Pond</span>
+      <span class="pm-tag sm" style="left:68.2%;top:48.5%">Pond</span>
+      <span class="pm-tag sm" style="left:68.2%;top:71%">Pond</span>
+      <span class="pm-acres">8.55&plusmn; acres</span>
+    </div>
     <div class="reveal">
       <span class="kicker">The Land</span>
       <h2>8.55 acres, corner-to-corner.</h2>
